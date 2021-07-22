@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <style>
+         #el_div1 {
+            display: none;
+         }
+      </style>
+      <script src="ajax.js"></script>
+   </head>
+   <body>
+      <input type="checkbox" id="cb">Mostrar tags</input>
+      <div id="el_div"></div>
+      <div id="el_div1"></div>
+      <script>
+         window.onload = async function( ) {
+            let etiquetas = await ajax_post("tags.php", { }, 1000000);
+            if (etiquetas instanceof Error) {
+               window.alert("Error al recibir respuesta del servidor (TAGS).");
+            } else {
+               let problem = await ajax_post("problemas.php", { }, 1000000);
+               if (problem instanceof Error) {
+                  window.alert("Error al recibir respuesta del servidor (Problemas).");
+               } else {
+                  for (let i = 0; i < problem.length; ++i) {
+                     let nuevo = document.createElement("div");
+                     nuevo.innerHTML = `NOMBRE : ${problem[i].alias}`;
+                     document.getElementById("el_div").appendChild(nuevo);
+                     
+                     let nuevo2 = document.createElement("div");
+                     nuevo2.innerHTML = `NOMBRE : ${problem[i].alias}`;
+                     document.getElementById("el_div1").appendChild(nuevo2);
+
+                     for (let y = 0; y < problem[i].tags.length; ++y) {
+                        let palabra = problem[i].tags[y];
+                        if (palabra.startsWith('problemLevel')){
+                           let nuevo = document.createElement("div");
+                           nuevo.textContent = `${palabra}`;
+                           document.getElementById("el_div").appendChild(nuevo);
+                        } else if (etiquetas[palabra] != undefined){
+                           let nuevo = document.createElement("div");
+                           nuevo.textContent = `${etiquetas[palabra]}`;
+                           document.getElementById("el_div").appendChild(nuevo);
+                        }
+                     }
+                  }
+               }
+            }
+         }
+  
+         document.getElementById('cb').onchange = function( ) {
+            if (this.checked){
+               document.getElementById('el_div').style.display = 'none'
+               document.getElementById('el_div1').style.display = 'block';
+            } else {
+               document.getElementById('el_div').style.display = 'block';
+               document.getElementById('el_div1').style.display = 'none';
+            }
+         }
+      </script>     
+   </body>
+</html>

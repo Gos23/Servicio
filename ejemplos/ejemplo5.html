@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+		<script src="../ajax.js"></script>
+	</head>
+	<body>
+      <div id="el_div"></div>
+		<script>
+      window.onload = async function( ) {
+			let res = await ajax_post("../problemas.php", { }, 1000000);
+			if (res instanceof Error) {
+				window.alert("Error al recibir respuesta del servidor.");
+         } else {
+				for (let i = 0; i < res.length; ++i) {
+					let nuevo = document.createElement("div");
+					nuevo.textContent = `NOMBRE : ${res[i].alias}, TAGS : ${res[i].tags}`;
+					document.getElementById("el_div").appendChild(nuevo);
+				}
+			}
+		}     
+      </script>
+	</body>
+</html>

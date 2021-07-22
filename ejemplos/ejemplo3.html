@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	</head>
+	<body>
+		<script>
+         // la salida del programa se mostrará en "herramientas de desarrollador"
+      
+         let arreglo = [ 1, "hola", 3.1416 ];            // un arreglo de javascript se declara con corchetes y puede tener elementos de tipos distintos
+         for (let i = 0; i < arreglo.length; ++i) {
+            console.log(arreglo[i]);
+         }
+         
+         let objeto = { "nombre": "juan", "edad": 15 };  // un objeto (parecido a un struct) se declara con llaves
+         console.log(objeto.nombre);
+         console.log(objeto.edad);
+         console.log(objeto["edad"]);                    // también funciona
+         
+         let cadena = "gatito";
+         let mensaje = `hola ${cadena} adios`;           // usando ` ` puedes crear cadenas que incrustan valores adentro con ${variable}
+         console.log(mensaje);
+		</script>
+	</body>
+</html>

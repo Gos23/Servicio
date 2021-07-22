@@ -1,0 +1,8 @@
+1. Revisar ejemplo1.php
+   Correrlo desde línea de comandos
+   
+2a. Revisar ejemplo2.php
+    Correrlo desde el servidor web directamente (por ejemplo, localhost/temp/ejemplo2.php)
+2b. Revisar ejemplo2.html que llama a ejemplo2.php con AJAX
+
+por ahora, ignorar el "ajax.js"
