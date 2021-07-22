@@ -3,41 +3,23 @@
    <head>
       <meta charset="utf-8">
       <style>
-         #lista {                
-            color: green;
+         .rojo {                 /* .clase */
+            color: red;
          }
          
-         #lista .tags {                      /* lo que tenga .tags que viva dentro de #lista */
-            color: gold;
+         .grande {
+            font-size: 20px;
          }
          
-         #lista.ocultar_tags .tags {         /* lo que tenga .tags que viva dentro de #lista, pero con la condición de que #lista tenga .ocultar_tags */
-            display: none;
+         #giovanni {             /* #id */
+            color: blue;
          }
       </style>
    </head>
    <body>
-      <input type="checkbox" id="cb">Mostrar tags</input>
-      <ul id="lista">
-         <li>
-            hola1
-            <div class="tags">
-               <span>a1</span>
-               <span>b1</span>
-               <span>c1</span>
-            </div>
-         <li>
-            hola2
-            <div class="tags">
-               <span>a2</span>
-               <span>b2</span>
-               <span>c2</span>
-            </div>
-      </ul>
-      <script>
-         document.getElementById('cb').onchange = function( ) {
-            document.getElementById("lista").classList.toggle("ocultar_tags");         // .classList.toggle agrega o quita una clase (como si fuera un interruptor: la quita si estaba, la pone si no estaba)
-         }
-      </script>     
+      <div class="rojo">rojo</div>
+      <div class="grande">grande</div>
+      <div class="rojo grande">rojo grande</div>  
+      <div id="giovanni">hola</div>
    </body>
 </html>
