@@ -3,7 +3,15 @@
    <head>
       <meta charset="utf-8">
       <style>
-         #el_div1 {
+         #lista{
+            color: red;
+         }
+         
+         #lista .tags{
+            color: blue;
+         }
+         
+         #lista.ocultar_tags .tags {         
             display: none;
          }
       </style>
@@ -11,8 +19,7 @@
    </head>
    <body>
       <input type="checkbox" id="cb">Mostrar tags</input>
-      <div id="el_div"></div>
-      <div id="el_div1"></div>
+      <ul id ="lista"></ul>
       <script>
          window.onload = async function( ) {
             let etiquetas = await ajax_post("tags.php", { }, 1000000);
@@ -23,40 +30,33 @@
                if (problem instanceof Error) {
                   window.alert("Error al recibir respuesta del servidor (Problemas).");
                } else {
+                  let ul = document.getElementById("lista");
                   for (let i = 0; i < problem.length; ++i) {
-                     let nuevo = document.createElement("div");
-                     nuevo.innerHTML = `NOMBRE : ${problem[i].alias}`;
-                     document.getElementById("el_div").appendChild(nuevo);
+                     let li1 = document.createElement("li");
+                     li1.textContent = `${problem[i].alias} `;
+                     ul.appendChild(li1); 
                      
-                     let nuevo2 = document.createElement("div");
-                     nuevo2.innerHTML = `NOMBRE : ${problem[i].alias}`;
-                     document.getElementById("el_div1").appendChild(nuevo2);
-
+                     let etiqueta = " ";
                      for (let y = 0; y < problem[i].tags.length; ++y) {
                         let palabra = problem[i].tags[y];
                         if (palabra.startsWith('problemLevel')){
-                           let nuevo = document.createElement("div");
-                           nuevo.textContent = `${palabra}`;
-                           document.getElementById("el_div").appendChild(nuevo);
+                           etiqueta += `${etiquetas[palabra]} `;
                         } else if (etiquetas[palabra] != undefined){
-                           let nuevo = document.createElement("div");
-                           nuevo.textContent = `${etiquetas[palabra]}`;
-                           document.getElementById("el_div").appendChild(nuevo);
+                           etiqueta += `${etiquetas[palabra]} `;
                         }
                      }
+                     
+                     let nuevo = document.createElement("div")
+                     nuevo.setAttribute("class", "tags")
+                     nuevo.textContent = etiqueta;
+                     li1.appendChild(nuevo);
                   }
                }
             }
          }
   
          document.getElementById('cb').onchange = function( ) {
-            if (this.checked){
-               document.getElementById('el_div').style.display = 'none'
-               document.getElementById('el_div1').style.display = 'block';
-            } else {
-               document.getElementById('el_div').style.display = 'block';
-               document.getElementById('el_div1').style.display = 'none';
-            }
+            document.getElementById("lista").classList.toggle("ocultar_tags");         // .classList.toggle agrega o quita una clase (como si fuera un interruptor: la quita si estaba, la pone si no estaba)
          }
       </script>     
    </body>
