@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS problemario;
-CREATE DATABASE problemario;
+CREATE DATABASE problemario CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE problemario;
 
 CREATE TABLE ueas (
