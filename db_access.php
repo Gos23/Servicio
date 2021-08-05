@@ -6,6 +6,7 @@
       
       function __construct($host, $usuario, $password, $db) {
          $this->handle = new mysqli($host, $usuario, $password, $db);
+         $this->handle->set_charset('utf8');
       }
       
       function escape($valor) {

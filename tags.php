@@ -1,11 +1,8 @@
 <?php
-   //die(file_get_contents('tags.json'));
-   header('Content-type: text/plain');
    require_once('db_access.php');
    require_once('db_auth.php');
    
    $conexion = new db_access(HOST_DB, USER_DB, PASSWORD_DB, DATABASE_DB);  
-  
    $tags = $conexion->query("SELECT * FROM  tags");
    $datos_convertir = array();
    $i = 0;
@@ -18,8 +15,5 @@
       $i = $i + 1;
    }
 
-   echo json_encode($datos_convertir);
-     
-   //$file = 'TAGS_MIO.json';
-   //file_put_contents($file,json_encode($datos_convertir));   
+   echo json_encode($datos_convertir);  
 ?>
