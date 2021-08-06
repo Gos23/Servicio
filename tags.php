@@ -4,16 +4,12 @@
    
    $conexion = new db_access(HOST_DB, USER_DB, PASSWORD_DB, DATABASE_DB);  
    $tags = $conexion->query("SELECT * FROM  tags");
-   $datos_convertir = array();
-   $i = 0;
-   while($i < count($tags)) {
-      $id = $tags[$i]["id"];
-      $clave = $tags[$i]["clave"];
-      $traduccion = $tags[$i]["traduccion"];
-      //echo $id ," ", $clave, " ", $traduccion, "\n";  
-   array_push($datos_convertir,array("id" => $id, "clave" => $clave, "traduccion" => $traduccion));
-      $i = $i + 1;
+   $datos_convertir = [];
+   foreach($tags as $tag){
+      $id = $tag["id"];
+      $clave = $tag["clave"];
+      $traduccion = $tag["traduccion"]; 
+      $datos_convertir[] = ["id" => $id, "clave" => $clave, "traduccion" => $traduccion];
    }
-
-   echo json_encode($datos_convertir);  
+   die(json_encode($datos_convertir,JSON_UNESCAPED_UNICODE)); 
 ?>

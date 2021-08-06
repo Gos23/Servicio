@@ -43,6 +43,7 @@ CREATE TABLE tags (
 CREATE TABLE tags_problema (
    problema INT NOT NULL,
    tag INT NOT NULL,
+   UNIQUE(problema,tag),
    
    FOREIGN KEY (problema) REFERENCES problemas (id),
    FOREIGN KEY (tag) REFERENCES tags (id)
