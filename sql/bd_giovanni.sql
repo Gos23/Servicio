@@ -146,6 +146,7 @@ INSERT INTO tags (clave, traduccion) VALUES
 	("problemTagLinkedLists", "Listas enlazadas"),
 	("problemTagInvertedIndices", "Índices invertidos"),
 	("problemTagHeaps", "Montículos"),
+   ("problemTagSetsMultisets", "Conjuntos y multiconjuntos"),
 	("problemTagBinarySearchTree", "Árboles binarios de búsqueda"),
 	("problemTagTreeTransversal", "Recorridos en árboles"),
 	("problemTagGraphRepresentation", "Representación de gráficas"),

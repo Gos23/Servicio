@@ -3,21 +3,12 @@
    require_once('db_auth.php');
    
    $conexion = new db_access(HOST_DB, USER_DB, PASSWORD_DB, DATABASE_DB);  
-   $problemas = $conexion->query("SELECT * FROM  problemas");
-   
-   $datos_convertir = [];
-   foreach($problemas as $problema){
-      $id = $problema["id"];
-      $nombre = $problema["nombre"];
-      $alias = $problema["alias"]; 
-      
-      $areglo_tags = [];
-      $tags_problemas = $conexion->query(" SELECT * FROM `tags_problema` WHERE `problema` LIKE ? ",$id);
+   $problemas = $conexion->query("SELECT id, alias, nombre, tema FROM problemas");
+   foreach($problemas as &$problema){     // iterar por referencia: podemos modificar los problemas (o agregarles cosas) y los cambios permanecen
+      $tags_problemas = $conexion->query("SELECT tag FROM tags_problema WHERE problema = ?", $problema['id']);
       foreach($tags_problemas as $tag){
-         $areglo_tags[] = $tag["tag"];
+         $problema['tags'][] = $tag["tag"];
       }
-      
-      $datos_convertir[] = ["id" => $id, "nombre" => $nombre, "alias" => $alias,"tags" => $areglo_tags ];
    }
-   echo json_encode($datos_convertir,JSON_UNESCAPED_UNICODE); 
+   die(json_encode($problemas)); 
 ?>

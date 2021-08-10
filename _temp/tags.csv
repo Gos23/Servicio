@@ -19,6 +19,7 @@ Colas,problemTagQueues
 Listas enlazadas,problemTagLinkedLists
 Índices invertidos,problemTagInvertedIndices
 Montículos,problemTagHeaps
+Conjuntos y multiconjuntos,problemTagSetsMultisets
 Árboles binarios de búsqueda,problemTagBinarySearchTree
 Recorridos en árboles,problemTagTreeTransversal
 Representación de gráficas,problemTagGraphRepresentation

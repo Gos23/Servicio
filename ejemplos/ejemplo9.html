@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+   </head>
+   <body>
+      <div id="el_div">
+      </div>
+      <script>
+         // datos inventados para el ejemplo
+         let tags = [         // arreglo de objetos (como lo que ahorita regresa la base de datos)
+            { "id": 1, "nombre": "sumas y restas", "clave": "problemTagSumasRestas" },          
+            { "id": 2, "nombre": "condiciones",    "clave": "problemTagConditions" },
+            { "id": 3, "nombre": "ciclos",         "clave": "problemTagLoops" }
+         ];
+         
+         // ¿cuál es el nombre del tag con id=2? lo siguiente no funciona
+         console.log(tags[2]["nombre"]);                  // mal :( estamos accesando a la posición 2 del arreglo, pero ahí no está el tag con id=2
+         
+         
+         
+         // función que toma un arreglo y regresa un objeto donde podemos buscar fácilmente por el campo dado
+         function reorganiza(arreglo, campo) {
+            let res = { };
+            for (let actual of arreglo) {
+               res[actual[campo]] = actual;
+            }
+            return res;
+         }
+         
+         // ¿cuál es el nombre del tag con id=2? lo siguiente ahora sí funciona :)
+         let tags_por_id = reorganiza(tags, "id");        // reorganizar los datos para poder buscar fácil por id
+         console.log(tags_por_id[2]["nombre"]);           
+         
+         // incluso podemos reorganizar por un campo distinto al id (por ejemplo, por clave)
+         let tags_por_clave = reorganiza(tags, "clave");
+         console.log(tags_por_clave["problemTagLoops"]["nombre"]);
+      </script>     
+   </body>
+</html>
