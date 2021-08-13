@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <style>
+         #lista{
+            color: red;
+         }
+         
+         #lista .temas{
+            color: blue;
+         }
+         
+         #lista.ocultar_temas .temas {         
+            display: none;
+         }
+      </style>
+      <script src="ajax.js"></script>
+   </head>
+   <body>
+      <input type="checkbox" id="cb">Mostrar temas</input>
+      <ul id ="lista"></ul>
+      <script>
+         window.onload = async function( ) {
+            let ueas = await ajax_post("ueas.php", { }, 1000);
+            if (ueas instanceof Error) {
+               window.alert("Error al recibir respuesta del servidor (UEAS).");
+            } else {
+               let temas = await ajax_post("temas.php", { }, 1000);
+               if (temas instanceof Error) {
+                  window.alert("Error al recibir respuesta del servidor (Temas).");
+               } else {
+                  let ul = document.getElementById("lista");
+                  let linebreak = document.createElement("br");
+                  
+                  for (let i = 0; i < ueas.length; ++i) {
+                     let li1 = document.createElement("li");
+                     li1.textContent = `${ueas[i].nombre} `;
+                     ul.appendChild(li1); 
+                     
+                    
+                     for (let y = 0; y < temas.length; ++y) {
+                        let uea_id = temas[y].uea;
+                        if (ueas[i].id == uea_id){
+                           let temaLista = document.createElement("div");
+                           temaLista.setAttribute("class", "temas");
+                           temaLista.textContent = `${temas[y].nombre} `;
+                           li1.appendChild(temaLista);
+                        }
+                     }
+                  }
+                  let li1 = document.createElement("li");
+                  li1.textContent = `No Clasificados`;
+                  ul.appendChild(li1); 
+               }
+            }
+         }
+  
+         document.getElementById('cb').onchange = function( ) {
+            document.getElementById("lista").classList.toggle("ocultar_temas");         // .classList.toggle agrega o quita una clase (como si fuera un interruptor: la quita si estaba, la pone si no estaba)
+         }
+      </script>     
+   </body>
+</html>
