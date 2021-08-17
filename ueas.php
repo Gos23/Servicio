@@ -3,6 +3,6 @@
    require_once('db_auth.php');
    
    $conexion = new db_access(HOST_DB, USER_DB, PASSWORD_DB, DATABASE_DB);  
-   $ueas = $conexion->query("SELECT id, nombre FROM ueas");
+   $ueas = $conexion->query("SELECT id, nombre, orden FROM ueas");
    die(json_encode($ueas)); 
 ?>

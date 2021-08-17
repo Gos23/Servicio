@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	</head>
+	<body>
+      <span id="titulo_lista1" data-redirect-dropchild="lista1">Lista 1</span><ul id="lista1"></ul>
+      <span id="titulo_lista2" data-redirect-dropchild="lista2">Lista 2</span><ul id="lista2"></ul>
+      <span id="titulo_lista3" data-redirect-dropchild="lista3">Lista 3</span><ul id="lista3"></ul>
+	</body>
+   <script>
+      function habilita_arrastrar(objeto) {
+         objeto.draggable = true;
+         objeto.ondragstart = function(evento) {
+            evento.dataTransfer.setData("text/plain", evento.target.id);
+            evento.dataTransfer.dropEffect = "move";
+         };
+      }
+      
+      function habilita_recibir_hermano(objeto) {
+         objeto.ondragover = function(evento) {
+            evento.preventDefault( );
+         };
+         objeto.ondrop = function(evento) {
+            this.parentNode.insertBefore(document.getElementById(evento.dataTransfer.getData("text/plain")), this.nextSibling);
+         };
+      }
+      
+      function habilita_recibir_hijo(objeto) {
+         objeto.ondragover = function(evento) {
+            evento.preventDefault( );
+         };
+         objeto.ondrop = function(evento) {
+            document.getElementById(this.getAttribute("data-redirect-dropchild")).appendChild(document.getElementById(evento.dataTransfer.getData("text/plain")));
+         };
+      }
+     
+      function llena(id_lista, cantidad) {
+         habilita_recibir_hijo(document.getElementById(`titulo_${id_lista}`));         // permitir que un objeto arrastrado entre al <ul>
+         for (let i = 0; i < cantidad; ++i) {
+            let actual = document.createElement("li");
+            actual.id = `${id_lista}_${i}`;
+            actual.textContent = `texto de ${id_lista}_${i}`;
+            document.getElementById(id_lista).appendChild(actual);
+            habilita_arrastrar(actual);                                                // permitir arrastrar el <li>
+            habilita_recibir_hermano(actual);                                          // permitir que el <li> reciba objetos arrastrados, colocándolos abajo como hermanos
+         }
+      }
+      
+      llena("lista1", 3);
+      llena("lista2", 5);
+      llena("lista3", 0);
+   </script>
+</html>

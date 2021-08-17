@@ -5,6 +5,7 @@ USE problemario;
 CREATE TABLE ueas (
    id INT NOT NULL AUTO_INCREMENT,
    nombre VARCHAR(64) NOT NULL,
+   orden INT DEFAULT NULL,
    
    PRIMARY KEY (id),
    UNIQUE (nombre)
@@ -14,6 +15,7 @@ CREATE TABLE temas (
    id INT NOT NULL AUTO_INCREMENT,
    nombre VARCHAR(64) NOT NULL,
    uea INT NOT NULL,
+   orden INT DEFAULT NULL,
    
    PRIMARY KEY (id),
    UNIQUE (nombre, uea),
@@ -25,6 +27,7 @@ CREATE TABLE problemas (
    alias VARCHAR(32) NOT NULL,
    nombre TEXT NOT NULL,
    tema INT DEFAULT NULL,
+   orden INT DEFAULT NULL,
    
    PRIMARY KEY (id),
    UNIQUE (alias),
@@ -35,6 +38,7 @@ CREATE TABLE tags (
    id INT NOT NULL AUTO_INCREMENT,
    clave VARCHAR(75) NOT NULL,
    traduccion TEXT NOT NULL,
+   orden INT DEFAULT NULL,
    
    PRIMARY KEY (id),
    UNIQUE (clave)
@@ -43,8 +47,8 @@ CREATE TABLE tags (
 CREATE TABLE tags_problema (
    problema INT NOT NULL,
    tag INT NOT NULL,
-   UNIQUE(problema,tag),
    
+   UNIQUE (problema, tag),
    FOREIGN KEY (problema) REFERENCES problemas (id),
    FOREIGN KEY (tag) REFERENCES tags (id)
 );

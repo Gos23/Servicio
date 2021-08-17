@@ -3,6 +3,6 @@
    require_once('db_auth.php');
    
    $conexion = new db_access(HOST_DB, USER_DB, PASSWORD_DB, DATABASE_DB);  
-   $temas = $conexion->query("SELECT id, nombre, uea FROM temas");
+   $temas = $conexion->query("SELECT id, nombre, uea, orden FROM temas");
    die(json_encode($temas)); 
 ?>
