@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <style>
+         #lista{
+            color: red;
+         }
+         
+         #lista .temas{
+            color: blue;
+         }
+         
+         #lista.ocultar_tags {         
+            display: none;
+         }
+      </style>
+      <script src="ajax.js"></script>
+   </head>
+   <body>
+      <span id="titulo_tags1" data-redirect-dropchild="tags1">Lista 1</span><ul id="tags1"></ul>
+      <span id="titulo_tags2" data-redirect-dropchild="tags2">Lista 2</span><ul id="tags2"></ul>
+      <ul id ="lista"></ul>
+      <script>  
+         
+         function habilita_arrastrar(objeto) {
+            objeto.draggable = true;
+            objeto.ondragstart = function(evento) {
+               evento.dataTransfer.setData("text/plain", evento.target.id);
+               evento.dataTransfer.dropEffect = "move";
+            };
+         }
+      
+         function habilita_recibir_hermano(objeto) {
+            objeto.ondragover = function(evento) {
+               evento.preventDefault( );
+            };
+            objeto.ondrop = function(evento) {
+               this.parentNode.insertBefore(document.getElementById(evento.dataTransfer.getData("text/plain")), this.nextSibling);
+            };
+         }
+      
+         function habilita_recibir_hijo(objeto) {
+            objeto.ondragover = function(evento) {
+               evento.preventDefault( );
+            };
+            objeto.ondrop = function(evento) {
+               document.getElementById(this.getAttribute("data-redirect-dropchild")).appendChild(document.getElementById(evento.dataTransfer.getData("text/plain")));
+            };
+         }
+         
+         function llena(id_lista, cantidad, arreglo) {
+            habilita_recibir_hijo(document.getElementById(`titulo_${id_lista}`));         
+            for (let i = 0; i < cantidad; ++i) {
+               let actual = document.createElement("li");
+               actual.id = `${id_lista}_${i}`;
+               actual.textContent = `${arreglo[i].traduccion} `;
+               document.getElementById(id_lista).appendChild(actual);
+               habilita_arrastrar(actual);                                                
+               habilita_recibir_hermano(actual);                                          
+            }
+         }
+         
+         window.onload = async function( ) {
+            let tags = await ajax_post("tags.php", { }, 1000);
+            tags1 = tags;
+            if (tags instanceof Error) {
+               window.alert("Error al recibir respuesta del servidor (UEAS).");
+            } else {
+               let ul = document.getElementById("lista");                
+                llena("tags1",tags.length,tags);
+                llena("tags2", 0,tags);
+            }
+         }  
+      </script>     
+   </body>
+</html>
