@@ -18,11 +18,8 @@
       <script src="ajax.js"></script>
    </head>
    <body>
-      <span id="titulo_tags1" data-redirect-dropchild="tags1">Lista 1</span><ul id="tags1"></ul>
-      <span id="titulo_tags2" data-redirect-dropchild="tags2">Lista 2</span><ul id="tags2"></ul>
-      <ul id ="lista"></ul>
+      <span id="titulo_tags" data-redirect-dropchild="tags">Tags</span><ul id="tags"></ul>
       <script>  
-         
          function habilita_arrastrar(objeto) {
             objeto.draggable = true;
             objeto.ondragstart = function(evento) {
@@ -31,45 +28,51 @@
             };
          }
       
-         function habilita_recibir_hermano(objeto) {
-            objeto.ondragover = function(evento) {
-               evento.preventDefault( );
-            };
+         // las funciones "habilita_recibir_hermano" y "habilita_recibir_hijo" ahora también recibirán una función que se llamará cuando ocurra el drop
+         
+         function habilita_recibir_hermano(objeto, notifica_drop) {     
+            objeto.ondragover = (evento) => evento.preventDefault( );
             objeto.ondrop = function(evento) {
                this.parentNode.insertBefore(document.getElementById(evento.dataTransfer.getData("text/plain")), this.nextSibling);
+               notifica_drop( );                                        // ya ocurrió el drop: llamar a la función que nos pasaron
             };
          }
       
-         function habilita_recibir_hijo(objeto) {
-            objeto.ondragover = function(evento) {
-               evento.preventDefault( );
-            };
+         function habilita_recibir_hijo(objeto, notifica_drop) {
+            objeto.ondragover = (evento) => evento.preventDefault( );
             objeto.ondrop = function(evento) {
                document.getElementById(this.getAttribute("data-redirect-dropchild")).appendChild(document.getElementById(evento.dataTransfer.getData("text/plain")));
+               notifica_drop( );                                        // ya ocurrió el drop: llamar a la función que nos pasaron
             };
          }
-         
-         function llena(id_lista, cantidad, arreglo) {
-            habilita_recibir_hijo(document.getElementById(`titulo_${id_lista}`));         
-            for (let i = 0; i < cantidad; ++i) {
+                  
+         // en esta función, ahora también recibiremos la propiedad que tenemos que mostrar en pantalla y una función que se llamará cuando ocurra un drop
+         function llena(id_lista, arreglo, propiedad_mostrar, notifica_drop) {         
+            for (let i = 0; i < arreglo.length; ++i) {
                let actual = document.createElement("li");
-               actual.id = `${id_lista}_${i}`;
-               actual.textContent = `${arreglo[i].traduccion} `;
+               actual.id = `${id_lista}_${i}`; 
+               actual.id_db = arreglo[i].id;                                                       // dentro del <li> guadaremos como id_db el id del objeto (en este caso, el id del tag) según la base de datos
+               actual.textContent = `${arreglo[i][propiedad_mostrar]}`;       
                document.getElementById(id_lista).appendChild(actual);
-               habilita_arrastrar(actual);                                                
-               habilita_recibir_hermano(actual);                                          
+               habilita_arrastrar(actual);
+               habilita_recibir_hermano(actual, notifica_drop);
             }
+            habilita_recibir_hijo(document.getElementById(`titulo_${id_lista}`), notifica_drop);
          }
          
          window.onload = async function( ) {
             let tags = await ajax_post("tags.php", { }, 1000);
-            tags1 = tags;
             if (tags instanceof Error) {
-               window.alert("Error al recibir respuesta del servidor (UEAS).");
-            } else {
-               let ul = document.getElementById("lista");                
-                llena("tags1",tags.length,tags);
-                llena("tags2", 0,tags);
+               window.alert("Error al recibir respuesta del servidor.");
+            } else {            
+               llena("tags", tags, "traduccion", async function( ) {                                   // el campo a mostrar es la traducción y pasamos la función a llamar cuando ocurra un drop
+                  let res = await ajax_post("reordena_tags.php", { "datos": [ 1, 2, 3, 4 ] }, 1000);      // mandamos una variable llamada "datos" con un arreglo [ 1, 2, 3, 4 ] para probar
+                  if (res instanceof Error) {
+                     window.alert("Error al recibir respuesta del servidor.");
+                  } else {            
+                     alert(res);                                                                          // imprimimos lo que responde el PHP para probar
+                  }
+               });      
             }
          }  
       </script>     
