@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	</head>
+   <script>
+      function llama(f) {
+         f( );
+      }
+      
+      function saluda( ) {
+         alert("hola");
+      }
+      
+      llama(saluda);          // pasando la función que ya existe
+      llama(function( ) {     // pasando la función que estoy creando ahorita
+         alert("adios");
+      });
+   </script>
+</html>

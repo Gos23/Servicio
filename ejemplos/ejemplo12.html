@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+	</head>
+   <body>
+      <ul id="lista">
+         <li id="3">a
+         <li id="1">b
+         <li id="4">c
+      </ul>
+   </body>
+   <script>
+      function imprime( ) {      // iterar sobre los <li> del <ul> en el orden EN EL QUE APARECEN (sin importar los id que tengan)
+         let lista = document.getElementById("lista");
+         for (let i = 0; i < lista.childNodes.length; ++i) {
+            if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {      // técnicamente, el primer hijo del <ul> es el texto (en blanco) que está antes del primer <li>, pero ése no nos sirve y por eso necesitamos el if
+               console.log(lista.childNodes[i].id, lista.childNodes[i].textContent);
+            }
+         }
+      }
+      
+      imprime( );
+   </script>
+</html>
