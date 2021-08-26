@@ -1,5 +1,13 @@
 <?php
-   if (isset($_POST['datos'])) {                   // verificamos que desde el navegador nos hayan mandado la variable llamada "datos"
-      die(json_encode($_POST['datos'], true));     //    si sí, imprimirla y terminar
+   require_once('db_access.php');
+   require_once('db_auth.php');
+   $conexion = new db_access(HOST_DB, USER_DB, PASSWORD_DB, DATABASE_DB);  
+    
+   if (isset($_POST['arr'])) { 
+      $arr = json_decode($_POST['arr'],true);
+      for ($i = 0; $i < count($arr); ++$i) {  
+         $conexion->query("UPDATE tags SET orden = ? WHERE id = ?", $i , $arr[$i]);
+      }    
+      die(json_encode($_POST['arr'], true));     
    }
 ?>

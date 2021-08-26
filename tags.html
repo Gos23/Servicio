@@ -66,7 +66,16 @@
                window.alert("Error al recibir respuesta del servidor.");
             } else {            
                llena("tags", tags, "traduccion", async function( ) {                                   // el campo a mostrar es la traducción y pasamos la función a llamar cuando ocurra un drop
-                  let res = await ajax_post("reordena_tags.php", { "datos": [ 1, 2, 3, 4 ] }, 1000);      // mandamos una variable llamada "datos" con un arreglo [ 1, 2, 3, 4 ] para probar
+                  let arr = [];
+                  let lista = document.getElementById("tags");
+                  for (let i = 0; i < lista.childNodes.length; ++i) {
+                     if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {      
+                        console.log(lista.childNodes[i].id, lista.childNodes[i].id_db, lista.childNodes[i].textContent);
+                        arr[i] = lista.childNodes[i].id_db;
+                     }
+                  }                  
+                 
+                  let res = await ajax_post("reordena_tags.php",{'arr': JSON.stringify(arr)} , 1000);      // mandamos una variable llamada "datos" con un arreglo [ 1, 2, 3, 4 ] para probar
                   if (res instanceof Error) {
                      window.alert("Error al recibir respuesta del servidor.");
                   } else {            
