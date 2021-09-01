@@ -42,7 +42,7 @@
             tag_li.appendChild(tag_span);
             tag_span.textContent = tag.traduccion;
             habilita_drag(tag_li, "tag");                                     // el que se puede arrastrar es el li; el li representa un "tag"
-            habilita_drop_hermano(tag_span, "tag", tag_li, actualiza_db);     // el que detecta que le pusieron algo encima es el span (y él redirige la acción al li); el span acepta que le arrastren un "tag"
+            habilita_drop_hermano(tag_span, "tag", tag_li, actualiza_db);     // el que detecta que le pusieron algo encima es el span (y él redirige la acción al li); el span acepta que le pongan encima un "tag"
 
             return tag_li;
          }
@@ -55,7 +55,7 @@
             
             let tags_ul = document.getElementById("tags_ul");
             let tags_span = document.getElementById("tags_span");
-            habilita_drop_hijo(tags_span, "tag", tags_ul, actualiza_db);      // el que detecta que le pusieron algo encima es el span (y él redirige la acción al ul); el span acepta que le arrastren un "tag"
+            habilita_drop_hijo(tags_span, "tag", tags_ul, actualiza_db);      // el que detecta que le pusieron algo encima es el span (y él redirige la acción al ul); el span acepta que le pongan encima un "tag"
             for (let tag of tags) {
                tags_ul.appendChild(crea_tag(tag));
             }
