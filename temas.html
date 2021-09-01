@@ -3,61 +3,78 @@
    <head>
       <meta charset="utf-8">
       <style>
-         #lista{
+         #ueas{
             color: red;
          }
          
-         #lista .temas{
+         #ueas .temas{
             color: blue;
          }
          
-         #lista.ocultar_temas .temas {         
+         #ueas.ocultar_temas .temas {         
             display: none;
          }
       </style>
       <script src="ajax.js"></script>
+      <script src="drop.js"></script>
    </head>
    <body>
-      <input type="checkbox" id="cb">Mostrar temas</input>
-      <ul id ="lista"></ul>
+      <input type="checkbox" id="cb" checked>Mostrar temas
+      <ul id="ueas_ul"></ul>
       <script>
-         window.onload = async function( ) {
-            let ueas = await ajax_post("ueas.php", { }, 1000);
-            if (ueas instanceof Error) {
-               window.alert("Error al recibir respuesta del servidor (UEAS).");
-            } else {
-               let temas = await ajax_post("temas.php", { }, 1000);
-               if (temas instanceof Error) {
-                  window.alert("Error al recibir respuesta del servidor (Temas).");
-               } else {
-                  let ul = document.getElementById("lista");
-                  let linebreak = document.createElement("br");
+         document.getElementById("cb").onchange = function( ) {
+            document.getElementById("ueas").classList.toggle("ocultar_temas");
+         }
+         
+         // el <ul> principal es de ueas
+         // cada <li> de ese <ul> representa una uea
+         // cada <li> de uea tiene su propio <ul> con los temas de la uea
+         // el texto de todos los li están en su propio span
                   
-                  for (let i = 0; i < ueas.length; ++i) {
-                     let li1 = document.createElement("li");
-                     li1.textContent = `${ueas[i].nombre} `;
-                     ul.appendChild(li1); 
-                     
-                    
-                     for (let y = 0; y < temas.length; ++y) {
-                        let uea_id = temas[y].uea;
-                        if (ueas[i].id == uea_id){
-                           let temaLista = document.createElement("div");
-                           temaLista.setAttribute("class", "temas");
-                           temaLista.textContent = `${temas[y].nombre} `;
-                           li1.appendChild(temaLista);
-                        }
-                     }
-                  }
-                  let li1 = document.createElement("li");
-                  li1.textContent = `No Clasificados`;
-                  ul.appendChild(li1); 
+         function crea_uea(uea, temas) {                 // si uea == null, entonces es la uea ficticia de "No clasificados"
+            let uea_li = document.createElement("li");
+            let uea_span = document.createElement("span");
+            let temas_ul = document.createElement("ul");
+            uea_li.id = `uea_${(uea?.id ?? "nc")}`;      // (uea?.id ?? "nc") es una forma compacta de escribir (uea != null ? uea.id : "nc")
+            uea_li.id_db = uea?.id;                      // uea?.id es una forma compacta de escribir (uea != null ? uea.id : null)
+            uea_span.textContent = (uea?.nombre ?? "Sin clasificación");
+            habilita_drag(uea_li, "uea");                            // el que se arrastra es el li y denota una uea
+            habilita_drop_hermano(uea_span, "uea", uea_li);          // pero el que detecta que le están poniendo algo encima es el span
+            habilita_drop_hijo(uea_span, "tema", temas_ul);          // el span acepta "uea"s como hermanos, pero "tema"s como hijos
+            uea_li.appendChild(uea_span);
+            uea_li.appendChild(temas_ul);
+            for (let tema of temas) {
+               if (uea?.id == tema.uea) {
+                  temas_ul.appendChild(crea_tema(tema));
                }
             }
+            return uea_li;
          }
-  
-         document.getElementById('cb').onchange = function( ) {
-            document.getElementById("lista").classList.toggle("ocultar_temas");         // .classList.toggle agrega o quita una clase (como si fuera un interruptor: la quita si estaba, la pone si no estaba)
+      
+         function crea_tema(tema) {
+            let tema_li = document.createElement("li");
+            let tema_span = document.createElement("span");
+            tema_li.id = `tema_${tema.id}`;
+            tema_li.id_db = tema.id;
+            tema_li.className = "temas";
+            tema_li.appendChild(tema_span);
+            tema_span.textContent = tema.nombre;
+            habilita_drag(tema_li, "tema");
+            habilita_drop_hermano(tema_span, "tema", tema_li);
+            return tema_li;
+         }
+      
+         window.onload = async function( ) {
+            let ueas = await ajax_post("ueas.php", { }, 1000), temas = await ajax_post("temas.php", { }, 1000);
+            if (ueas instanceof Error || temas instanceof Error) {
+               return window.alert("Error al recibir respuesta del servidor (UEAS).");
+            }
+            
+            let ueas_ul = document.getElementById("ueas_ul");
+            for (let uea of ueas) {
+               ueas_ul.appendChild(crea_uea(uea, temas));
+            }
+            ueas_ul.appendChild(crea_uea(null, temas));
          }
       </script>     
    </body>

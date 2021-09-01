@@ -16,74 +16,50 @@
          }
       </style>
       <script src="ajax.js"></script>
+      <script src="drop.js"></script>
    </head>
    <body>
-      <span id="titulo_tags" data-redirect-dropchild="tags">Tags</span><ul id="tags"></ul>
-      <script>  
-         function habilita_arrastrar(objeto) {
-            objeto.draggable = true;
-            objeto.ondragstart = function(evento) {
-               evento.dataTransfer.setData("text/plain", evento.target.id);
-               evento.dataTransfer.dropEffect = "move";
-            };
-         }
-      
-         // las funciones "habilita_recibir_hermano" y "habilita_recibir_hijo" ahora también recibirán una función que se llamará cuando ocurra el drop
-         
-         function habilita_recibir_hermano(objeto, notifica_drop) {     
-            objeto.ondragover = (evento) => evento.preventDefault( );
-            objeto.ondrop = function(evento) {
-               this.parentNode.insertBefore(document.getElementById(evento.dataTransfer.getData("text/plain")), this.nextSibling);
-               notifica_drop( );                                        // ya ocurrió el drop: llamar a la función que nos pasaron
-            };
-         }
-      
-         function habilita_recibir_hijo(objeto, notifica_drop) {
-            objeto.ondragover = (evento) => evento.preventDefault( );
-            objeto.ondrop = function(evento) {
-               document.getElementById(this.getAttribute("data-redirect-dropchild")).appendChild(document.getElementById(evento.dataTransfer.getData("text/plain")));
-               notifica_drop( );                                        // ya ocurrió el drop: llamar a la función que nos pasaron
-            };
-         }
-                  
-         // en esta función, ahora también recibiremos la propiedad que tenemos que mostrar en pantalla y una función que se llamará cuando ocurra un drop
-         function llena(id_lista, arreglo, propiedad_mostrar, notifica_drop) {         
-            for (let i = 0; i < arreglo.length; ++i) {
-               let actual = document.createElement("li");
-               actual.id = `${id_lista}_${i}`; 
-               actual.id_db = arreglo[i].id;                                                       // dentro del <li> guadaremos como id_db el id del objeto (en este caso, el id del tag) según la base de datos
-               actual.textContent = `${arreglo[i][propiedad_mostrar]}`;       
-               document.getElementById(id_lista).appendChild(actual);
-               habilita_arrastrar(actual);
-               habilita_recibir_hermano(actual, notifica_drop);
+      <span id="tags_span" data-dropchild="tags">Tags</span> <ul id="tags_ul"></ul>
+      <script>
+         async function actualiza_db( ) {
+            let arr = [ ], lista = document.getElementById("tags_ul");
+            for (let i = 0; i < lista.childNodes.length; ++i) {
+               if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {      
+                  arr.push(lista.childNodes[i].id_db);      // agregar un elemento a un arreglo debe hacerse con push
+               }
+            }                  
+            let res = await ajax_post("reordena_tags.php", { "arr": JSON.stringify(arr) } , 1000);      
+            if (res instanceof Error) {
+               window.alert("Error al recibir respuesta del servidor.");
             }
-            habilita_recibir_hijo(document.getElementById(`titulo_${id_lista}`), notifica_drop);
          }
          
+         function crea_tag(tag) {
+            let tag_li = document.createElement("li");
+            let tag_span = document.createElement("span");        // ya no usaremos  li.textContent = "el nombre";  sino que crearemos un span dentro del li y el span será el que tenga textContent
+            tag_li.id = `tags_${tag.id}`; 
+            tag_li.id_db = tag.id;
+            tag_li.appendChild(tag_span);
+            tag_span.textContent = tag.traduccion;
+            habilita_drag(tag_li, "tag");                                     // el que se puede arrastrar es el li; el li representa un "tag"
+            habilita_drop_hermano(tag_span, "tag", tag_li, actualiza_db);     // el que detecta que le pusieron algo encima es el span (y él redirige la acción al li); el span acepta que le arrastren un "tag"
+
+            return tag_li;
+         }
+      
          window.onload = async function( ) {
             let tags = await ajax_post("tags.php", { }, 1000);
             if (tags instanceof Error) {
-               window.alert("Error al recibir respuesta del servidor.");
-            } else {            
-               llena("tags", tags, "traduccion", async function( ) {                                   // el campo a mostrar es la traducción y pasamos la función a llamar cuando ocurra un drop
-                  let arr = [];
-                  let lista = document.getElementById("tags");
-                  for (let i = 0; i < lista.childNodes.length; ++i) {
-                     if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {      
-                        console.log(lista.childNodes[i].id, lista.childNodes[i].id_db, lista.childNodes[i].textContent);
-                        arr[i] = lista.childNodes[i].id_db;
-                     }
-                  }                  
-                 
-                  let res = await ajax_post("reordena_tags.php",{'arr': JSON.stringify(arr)} , 1000);      // mandamos una variable llamada "datos" con un arreglo [ 1, 2, 3, 4 ] para probar
-                  if (res instanceof Error) {
-                     window.alert("Error al recibir respuesta del servidor.");
-                  } else {            
-                     alert(res);                                                                          // imprimimos lo que responde el PHP para probar
-                  }
-               });      
+               return window.alert("Error al recibir respuesta del servidor.");
             }
-         }  
+            
+            let tags_ul = document.getElementById("tags_ul");
+            let tags_span = document.getElementById("tags_span");
+            habilita_drop_hijo(tags_span, "tag", tags_ul, actualiza_db);      // el que detecta que le pusieron algo encima es el span (y él redirige la acción al ul); el span acepta que le arrastren un "tag"
+            for (let tag of tags) {
+               tags_ul.appendChild(crea_tag(tag));
+            }
+         }
       </script>     
    </body>
 </html>

@@ -8,6 +8,6 @@
       for ($i = 0; $i < count($arr); ++$i) {  
          $conexion->query("UPDATE tags SET orden = ? WHERE id = ?", $i , $arr[$i]);
       }    
-      die(json_encode($_POST['arr'], true));     
+      die(true);     
    }
 ?>
