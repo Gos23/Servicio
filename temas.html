@@ -20,8 +20,9 @@
    </head>
    <body>
       <input type="checkbox" id="cb" checked>Mostrar temas
-      <ul id="ueas_ul"></ul>
+      <span id="ueas_span" data-dropchild="ueas">Tags</span> <ul id="ueas_ul"></ul>
       <script>
+         
          document.getElementById("cb").onchange = function( ) {
             document.getElementById("ueas").classList.toggle("ocultar_temas");
          }
@@ -30,7 +31,40 @@
          // cada <li> de ese <ul> representa una uea
          // cada <li> de uea tiene su propio <ul> con los temas de la uea
          // el texto de todos los li están en su propio span
-                  
+         
+         ////////////////////////////////////////////////////////////////
+         async function actualiza_db_ueas( ) {
+            let arr = [ ], lista = document.getElementById("ueas_ul");
+            for (let i = 0; i < lista.childNodes.length; ++i) {
+               if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {      
+                  arr.push(lista.childNodes[i].id_db);      // agregar un elemento a un arreglo debe hacerse con push
+               }
+            }                  
+            let res = await ajax_post("reordena_ueas.php", { "arr": JSON.stringify(arr) } , 1000);      
+            if (res instanceof Error) {
+               window.alert("Error al recibir respuesta del servidor.");
+            }
+         }
+         
+         //Funcion para actualizar los temas, trabajando en ello 
+         async function actualiza_db_temas( ) {
+            console.log("Estoy dentro de la funcion Actualiza_db_temas");
+            let arr = [ ], lista = document.getElementById("ueas_ul");
+            for (let i = 0; i < lista.childNodes.length; ++i) {               
+               for(let j = 0; j < lista.childNodes[i].length; ++j) {
+                  console.log(lista.childNodes[i].length);
+                  if (lista.childNodes[i][j].nodeType == Node.ELEMENT_NODE) {      
+                     console.log(lista.childNodes[i][j].id, lista.childNodes[i][j].id_db);
+                     arr.push(lista.childNodes[i][j].id_db);      // agregar un elemento a un arreglo debe hacerse con push
+                  }
+               }
+            }                  
+            //let res = await ajax_post("reordena_temas.php", { "arr": JSON.stringify(arr) } , 1000);      
+            //if (res instanceof Error) {
+            //   window.alert("Error al recibir respuesta del servidor.");
+            //}
+         }
+         
          function crea_uea(uea, temas) {                 // si uea == null, entonces es la uea ficticia de "No clasificados"
             let uea_li = document.createElement("li");
             let uea_span = document.createElement("span");
@@ -39,8 +73,8 @@
             uea_li.id_db = uea?.id;                      // uea?.id es una forma compacta de escribir (uea != null ? uea.id : null)
             uea_span.textContent = (uea?.nombre ?? "Sin clasificación");
             habilita_drag(uea_li, "uea");                            // el que se arrastra es el li y denota una uea
-            habilita_drop_hermano(uea_span, "uea", uea_li);          // pero el que detecta que le están poniendo algo encima es el span
-            habilita_drop_hijo(uea_span, "tema", temas_ul);          // el span acepta "uea"s como hermanos, pero "tema"s como hijos
+            habilita_drop_hermano(uea_span, "uea", uea_li, actualiza_db_ueas);        // pero el que detecta que le están poniendo algo encima es el span
+            habilita_drop_hijo(uea_span, "tema", temas_ul);         // el span acepta "uea"s como hermanos, pero "tema"s como hijos
             uea_li.appendChild(uea_span);
             uea_li.appendChild(temas_ul);
             for (let tema of temas) {
@@ -60,7 +94,7 @@
             tema_li.appendChild(tema_span);
             tema_span.textContent = tema.nombre;
             habilita_drag(tema_li, "tema");
-            habilita_drop_hermano(tema_span, "tema", tema_li);
+            habilita_drop_hermano(tema_span, "tema", tema_li, actualiza_db_temas);
             return tema_li;
          }
       
