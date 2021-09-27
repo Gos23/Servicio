@@ -15,23 +15,23 @@
             display: none;
          }
       </style>
-      <script src="ajax.js"></script>
-      <script src="drop.js"></script>
+      <script src="base/ajax.js"></script>
+      <script src="base/drop.js"></script>
+      <script src="base/map.js"></script>
    </head>
    <body>
-      <input type="checkbox" id="cb" checked>Mostrar temas
-      <span id="ueas_span" data-dropchild="ueas">Tags</span> <ul id="ueas_ul"></ul>
+      <input type="checkbox" id="cb" checked>Mostrar temas<br><br>
+      <span id="ueas_span" data-dropchild="ueas">Lista de UEA:</span><ul id="ueas_ul"></ul>
       <script>
          document.getElementById("cb").onchange = function( ) {
             document.getElementById("ueas_ul").classList.toggle("ocultar_temas");
          }
-         
+
          // el <ul> principal es de ueas
          // cada <li> de ese <ul> representa una uea
          // cada <li> de uea tiene su propio <ul> con los temas de la uea
          // el texto de todos los li están en su propio span
          
-         ////////////////////////////////////////////////////////////////
          async function actualiza_db_ueas( ) {
             let arr = [ ], lista = document.getElementById("ueas_ul");
             for (let i = 0; i < lista.childNodes.length; ++i) {
@@ -68,18 +68,16 @@
             let uea_li = document.createElement("li");
             let uea_span = document.createElement("span");
             let temas_ul = document.createElement("ul");
-            uea_li.id = `uea_${(uea?.id ?? "nc")}`;                                 // (uea?.id ?? "nc") es una forma compacta de escribir (uea != null ? uea.id : "nc")
-            uea_li.id_db = uea?.id;                                                 // uea?.id es una forma compacta de escribir (uea != null ? uea.id : null)
-            uea_span.textContent = (uea?.nombre ?? "Sin clasificación");
+            uea_li.id = `uea_${uea.id}`;                                 
+            uea_li.id_db = uea.id;                                                 
+            uea_span.textContent = uea.nombre;
             habilita_drag(uea_li, "uea");                                           // el que se arrastra es el li y denota una uea pero...
             habilita_drop_hermano(uea_span, "uea", uea_li, actualiza_db_ueas);      // el que detecta que le están poniendo algo encima es el span; él acepta "uea"s como hermanas
-            habilita_drop_hijo(uea_span, `tema_${(uea?.id ?? "nc")}`, temas_ul);    // él acepta "tema"s (de la misma uea) como hijos
+            habilita_drop_hijo(uea_span, `tema_${uea}`, temas_ul);                  // él acepta "tema"s (de la misma uea) como hijos
             uea_li.appendChild(uea_span);
             uea_li.appendChild(temas_ul);
             for (let tema of temas) {
-               if (uea?.id == tema.uea) {
-                  temas_ul.appendChild(crea_tema(tema));
-               }
+               temas_ul.appendChild(crea_tema(tema));
             }
             return uea_li;
          }
@@ -103,11 +101,10 @@
                return window.alert("Error al recibir respuesta del servidor (UEAS).");
             }
             
-            let ueas_ul = document.getElementById("ueas_ul");
+            let ueas_ul = document.getElementById("ueas_ul"), temas_por_uea = reorganiza(temas, "uea", false);
             for (let uea of ueas) {
-               ueas_ul.appendChild(crea_uea(uea, temas));
+               ueas_ul.appendChild(crea_uea(uea, temas_por_uea[uea.id]));
             }
-            ueas_ul.appendChild(crea_uea(null, temas));
          }
       </script>     
    </body>

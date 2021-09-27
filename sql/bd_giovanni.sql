@@ -5,44 +5,44 @@ USE problemario;
 CREATE TABLE ueas (
    id INT NOT NULL AUTO_INCREMENT,
    nombre VARCHAR(64) NOT NULL,
-   orden INT DEFAULT NULL,
+   orden INT NOT NULL DEFAULT 0,
    
    PRIMARY KEY (id),
    UNIQUE (nombre)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE temas (
    id INT NOT NULL AUTO_INCREMENT,
    nombre VARCHAR(64) NOT NULL,
    uea INT NOT NULL,
-   orden INT DEFAULT NULL,
+   orden INT NOT NULL DEFAULT 0,
    
    PRIMARY KEY (id),
    UNIQUE (nombre, uea),
    FOREIGN KEY (uea) REFERENCES ueas (id)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE problemas (
    id INT NOT NULL AUTO_INCREMENT,
    alias VARCHAR(32) NOT NULL,
    nombre TEXT NOT NULL,
-   tema INT DEFAULT NULL,
-   orden INT DEFAULT NULL,
+   tema INT NOT NULL,
+   orden INT NOT NULL DEFAULT 0,
    
    PRIMARY KEY (id),
    UNIQUE (alias),
    FOREIGN KEY (tema) REFERENCES temas (id)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE tags (
    id INT NOT NULL AUTO_INCREMENT,
    clave VARCHAR(75) NOT NULL,
    traduccion TEXT NOT NULL,
-   orden INT DEFAULT NULL,
+   orden INT NOT NULL DEFAULT 0,
    
    PRIMARY KEY (id),
    UNIQUE (clave)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE tags_problema (
    problema INT NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE tags_problema (
    UNIQUE (problema, tag),
    FOREIGN KEY (problema) REFERENCES problemas (id),
    FOREIGN KEY (tag) REFERENCES tags (id)
-);
+) ENGINE=InnoDB;
 
 INSERT INTO ueas (nombre) VALUES
 	("Programación Estructurada"),
@@ -64,7 +64,8 @@ INSERT INTO ueas (nombre) VALUES
 	("Combinatoria"),
 	("Compiladores"),
 	("Criptografía"),
-	("Taller de Análisis y Diseño de Algoritmos");
+	("Taller de Análisis y Diseño de Algoritmos"),
+   ("Otros cursos");
 
 INSERT INTO temas (nombre, uea) VALUES
    ("Sin clasificación",    (SELECT id FROM ueas WHERE nombre = "Programación Estructurada")),
@@ -127,7 +128,9 @@ INSERT INTO temas (nombre, uea) VALUES
    
    ("Sin clasificación", (SELECT id FROM ueas WHERE nombre = "Criptografía")),
    
-   ("Sin clasificación", (SELECT id FROM ueas WHERE nombre = "Taller de Análisis y Diseño de Algoritmos"));
+   ("Sin clasificación", (SELECT id FROM ueas WHERE nombre = "Taller de Análisis y Diseño de Algoritmos")),
+   
+   ("Sin clasificación", (SELECT id FROM ueas WHERE nombre = "Otros cursos"));
    
 INSERT INTO tags (clave, traduccion) VALUES  
    ("problemTagInputAndOutput", "Entrada y salida"),

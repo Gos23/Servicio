@@ -53,5 +53,5 @@
       }
    }
    
-   die(file_put_contents('../problemas.json', json_encode($res, true)));
+   die(file_put_contents('problemas.json', json_encode($res, true)));
 ?>

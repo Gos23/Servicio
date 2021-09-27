@@ -15,8 +15,8 @@
             display: none;
          }
       </style>
-      <script src="ajax.js"></script>
-      <script src="drop.js"></script>
+      <script src="base/ajax.js"></script>
+      <script src="base/drop.js"></script>
    </head>
    <body>
       <span id="tags_span" data-dropchild="tags">Tags</span> <ul id="tags_ul"></ul>
@@ -53,8 +53,7 @@
                return window.alert("Error al recibir respuesta del servidor.");
             }
             
-            let tags_ul = document.getElementById("tags_ul");
-            let tags_span = document.getElementById("tags_span");
+            let tags_ul = document.getElementById("tags_ul"), tags_span = document.getElementById("tags_span");
             habilita_drop_hijo(tags_span, "tag", tags_ul, actualiza_db);      // el que detecta que le pusieron algo encima es el span (y él redirige la acción al ul); el span acepta que le pongan encima un "tag"
             for (let tag of tags) {
                tags_ul.appendChild(crea_tag(tag));

@@ -46,7 +46,6 @@ function ajax_send(ajax, parametros, timeout, parse, progreso) {
             progreso(evento.loaded, evento.total);
          }
       }
-      
       ajax.send(parametros);
    });
 }
