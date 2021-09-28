@@ -17,17 +17,10 @@
          
          #lista .tags{
             color: black;
+            font-size: 12px;
          }
          
          #lista.ocultar_tags .tags {         
-            display: none;
-         }
-         
-         #lista.ocultar_temas .temas {         
-            display: none;
-         }
-         
-         #lista.ocultar_problemas .problemas {         
             display: none;
          }
       </style>
@@ -36,8 +29,6 @@
       <script src="base/map.js"></script>
    </head>
    <body>      
-      <input type="checkbox" id="cb_temas" checked>Mostrar temas<br><br>
-      <input type="checkbox" id="cb_problemas" checked>Mostrar problemas<br><br>
       <input type="checkbox" id="cb_tags" checked>Mostrar tags<br><br>
       <select id="select"></select>
       <ul id="lista"></ul>
@@ -46,48 +37,59 @@
             document.getElementById("lista").classList.toggle("ocultar_tags");
          }
          
-         document.getElementById('cb_temas').onchange = function( ) {
-            document.getElementById("lista").classList.toggle("ocultar_temas");
+         // el <ul> principal es de temas de la uea seleccionada
+         // cada <li> de ese <ul> representa un tema
+         // cada <li> de tema tiene su propio <ul> con los problemas de la uea
+         
+         async function actualiza_db( ) {
+            console.log(":)");
          }
          
-         document.getElementById('cb_problemas').onchange = function( ) {
-            document.getElementById("lista").classList.toggle("ocultar_problemas");
+         function crea_problema(problema, tags_por_id) {
+            let problema_li = document.createElement("li");
+            let problema_span = document.createElement("span");
+            let tag_div = document.createElement("div");
+            problema_li.setAttribute("class", "problemas");
+            problema_li.id = `problemas_${problema.id}`; 
+            problema_li.id_db = problema.id;
+            problema_li.appendChild(problema_span);
+            problema_li.appendChild(tag_div);
+            problema_span.textContent = problema.nombre;
+            habilita_drag(problema_li, "problema");
+            habilita_drop_hermano(problema_span, "problema", problema_li, actualiza_db);
+            tag_div.setAttribute("class", "tags");          
+            for (let tag_id of problema.tags) { 
+               tag_div.textContent += `${tags_por_id[tag_id].traduccion}, `;
+            }
+            return problema_li;
+         }
+         
+         function crea_tema(tema, problemas, tags_por_id) {
+            let tema_li = document.createElement("li");
+            let tema_span = document.createElement("span");
+            let problemas_ul = document.createElement("ul");
+            tema_li.setAttribute("class", "temas");
+            tema_li.appendChild(tema_span);
+            tema_li.appendChild(problemas_ul);
+            tema_span.textContent = tema.nombre;
+            habilita_drop_hijo(tema_span, "problema", problemas_ul);
+            for (let problema of problemas) {
+               problemas_ul.appendChild(crea_problema(problema, tags_por_id));
+            }
+            return tema_li;
          }
          
          window.onload = async function( ) {
-            let ueas = await ajax_post("ueas.php", { }, 1000), temas = await ajax_post("temas.php", { }, 1000), tags = await ajax_post("tags.php", { }, 1000), problemas = await ajax_post("problemas.php", { }, 1000);
-            if (ueas instanceof Error || temas instanceof Error || tags instanceof Error || problemas instanceof Error) {
+            let ueas = await ajax_post("ueas.php", { }, 1000), temas = await ajax_post("temas.php", { }, 1000), problemas = await ajax_post("problemas.php", { }, 1000), tags = await ajax_post("tags.php", { }, 1000);
+            if (ueas instanceof Error || temas instanceof Error || problemas instanceof Error || tags instanceof Error) {
                return window.alert("Error al recibir respuesta del servidor.");
             }
             
-            let ueas_por_id = reorganiza(ueas, "id", true), tags_por_id = reorganiza(tags, "id", true);
-            let temas_por_uea = reorganiza(temas, "uea", false), problemas_por_tema = reorganiza(problemas, "tema", false);
+            let temas_por_uea = reorganiza(temas, "uea", false), problemas_por_tema = reorganiza(problemas, "tema", false), tags_por_id = reorganiza(tags, "id", true);
             let actualiza_lista = function(uea_id) {
-               console.clear( );
-               let ul_uea = document.getElementById("lista");               
-               let li_uea = document.createElement("li");
-               li_uea.textContent = `${ueas_por_id[uea_id].nombre} `;
-               ul_uea.appendChild(li_uea);
-               
+               document.getElementById("lista").innerHTML = "";
                for (let tema of temas_por_uea[uea_id]) {                
-                  let ul_tema = document.createElement("ul")
-                  ul_tema.setAttribute("class", "temas")
-                  ul_tema.textContent = `${tema.nombre}` ;
-                  li_uea.appendChild(ul_tema);
-                 
-                  for (let problema of (problemas_por_tema[tema.id] ?? [ ])) {
-                     let li_problema = document.createElement("ul")
-                     li_problema.setAttribute("class", "problemas")
-                     li_problema.textContent = `${problema.nombre}` ;
-                     ul_tema.appendChild(li_problema);
-                                 
-                     let li_tag = document.createElement("ul")
-                     li_tag.setAttribute("class", "tags")              
-                     for (let tag_id of problema.tags) { 
-                        li_tag.textContent += ` ${tags_por_id[tag_id].traduccion}, ` ;
-                     }
-                     li_problema.appendChild(li_tag);
-                  }
+                  document.getElementById("lista").appendChild(crea_tema(tema, (problemas_por_tema[tema.id] ?? [ ]), tags_por_id));
                }
             };
             
@@ -96,7 +98,6 @@
                select.options.add(new Option(uea.nombre, uea.id));         
             }
             select.onchange = function( ) {
-               document.getElementById("lista").innerHTML = '';
                actualiza_lista(this.value);
             }
             select.onchange( );
