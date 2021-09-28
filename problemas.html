@@ -4,14 +4,30 @@
       <meta charset="utf-8">
       <style>
          #lista{
-            color: red;
+            color: black;
+         }
+         
+         #lista .temas{
+            color: black;
+         }
+         
+         #lista .problemas{
+            color: black;
          }
          
          #lista .tags{
-            color: blue;
+            color: black;
          }
          
          #lista.ocultar_tags .tags {         
+            display: none;
+         }
+         
+         #lista.ocultar_temas .temas {         
+            display: none;
+         }
+         
+         #lista.ocultar_problemas .problemas {         
             display: none;
          }
       </style>
@@ -19,12 +35,23 @@
       <script src="base/drop.js"></script>
       <script src="base/map.js"></script>
    </head>
-   <body>
-      <input type="checkbox" id="cb" checked>Mostrar tags<br><br>
+   <body>      
+      <input type="checkbox" id="cb_temas" checked>Mostrar temas<br><br>
+      <input type="checkbox" id="cb_problemas" checked>Mostrar problemas<br><br>
+      <input type="checkbox" id="cb_tags" checked>Mostrar tags<br><br>
       <select id="select"></select>
+      <ul id="lista"></ul>
       <script>
-         document.getElementById('cb').onchange = function( ) {
+         document.getElementById('cb_tags').onchange = function( ) {
             document.getElementById("lista").classList.toggle("ocultar_tags");
+         }
+         
+         document.getElementById('cb_temas').onchange = function( ) {
+            document.getElementById("lista").classList.toggle("ocultar_temas");
+         }
+         
+         document.getElementById('cb_problemas').onchange = function( ) {
+            document.getElementById("lista").classList.toggle("ocultar_problemas");
          }
          
          window.onload = async function( ) {
@@ -37,23 +64,39 @@
             let temas_por_uea = reorganiza(temas, "uea", false), problemas_por_tema = reorganiza(problemas, "tema", false);
             let actualiza_lista = function(uea_id) {
                console.clear( );
-               console.log("(UEA) ", ueas_por_id[uea_id].nombre);
-               for (let tema of temas_por_uea[uea_id]) {
-                  console.log("   (TEMA) ", tema.nombre);
+               let ul_uea = document.getElementById("lista");               
+               let li_uea = document.createElement("li");
+               li_uea.textContent = `${ueas_por_id[uea_id].nombre} `;
+               ul_uea.appendChild(li_uea);
+               
+               for (let tema of temas_por_uea[uea_id]) {                
+                  let ul_tema = document.createElement("ul")
+                  ul_tema.setAttribute("class", "temas")
+                  ul_tema.textContent = `${tema.nombre}` ;
+                  li_uea.appendChild(ul_tema);
+                 
                   for (let problema of (problemas_por_tema[tema.id] ?? [ ])) {
-                     console.log("      (PROBLEMA) ", problema.nombre);
-                     for (let tag_id of problema.tags) {
-                        console.log("         (TAG) ", tags_por_id[tag_id].traduccion);
+                     let li_problema = document.createElement("ul")
+                     li_problema.setAttribute("class", "problemas")
+                     li_problema.textContent = `${problema.nombre}` ;
+                     ul_tema.appendChild(li_problema);
+                                 
+                     let li_tag = document.createElement("ul")
+                     li_tag.setAttribute("class", "tags")              
+                     for (let tag_id of problema.tags) { 
+                        li_tag.textContent += ` ${tags_por_id[tag_id].traduccion}, ` ;
                      }
+                     li_problema.appendChild(li_tag);
                   }
                }
             };
             
             let select = document.getElementById("select");
             for (let uea of ueas) {
-               select.options.add(new Option(uea.nombre, uea.id));         // el texto es el nombre de la uea, el valor es su id
+               select.options.add(new Option(uea.nombre, uea.id));         
             }
             select.onchange = function( ) {
+               document.getElementById("lista").innerHTML = '';
                actualiza_lista(this.value);
             }
             select.onchange( );
