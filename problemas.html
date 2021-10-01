@@ -42,7 +42,22 @@
          // cada <li> de tema tiene su propio <ul> con los problemas de la uea
          
          async function actualiza_db( ) {
-            console.log(":)");
+            let lista = document.getElementById("lista");
+            for (let i = 0; i < lista.childNodes.length ; ++i) {
+               let arr = [ ];
+               if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {   
+                  let lista_problemas = lista.childNodes[i].lastChild;
+                  for (let j = 0; j < lista_problemas.childNodes.length; ++j) {
+                     if (lista_problemas.childNodes[j].nodeType == Node.ELEMENT_NODE) { 
+                        arr.push(lista_problemas.childNodes[j].id_db);
+                     }
+                  }
+                  let res = await ajax_post("reordena_problemas.php", { "arr": JSON.stringify(arr) } , 1000);      
+                  if (res instanceof Error) {
+                     window.alert("Error al recibir respuesta del servidor.");
+                  }
+               }
+            }
          }
          
          function crea_problema(problema, tags_por_id) {
