@@ -2,7 +2,12 @@
 <html>
    <head>
       <meta charset="utf-8">
-      <style>
+      <style>      
+         body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+         }
+               
          #lista{
             color: black;
          }
@@ -13,6 +18,10 @@
          
          #lista .problemas{
             color: black;
+         }
+         
+         #lista .problemas span{
+            margin-right: 20px;
          }
          
          #lista .tags{
@@ -29,9 +38,15 @@
       <script src="base/map.js"></script>
    </head>
    <body>      
-      <input type="checkbox" id="cb_tags" checked>Mostrar tags<br><br>
-      <select id="select"></select>
-      <ul id="lista"></ul>
+      <div id="ver">
+         <input type="checkbox" id="cb_tags" checked>Mostrar tags<br><br>
+         Ver problemas de: <select id="select"></select>
+         <ul id="lista"></ul>
+      </div>
+      <div id="migrar">
+         Arrastrar problema a:
+         <ul id="lista_migrar"></ul>
+      </div>
       <script>
          document.getElementById('cb_tags').onchange = function( ) {
             document.getElementById("lista").classList.toggle("ocultar_tags");
@@ -63,13 +78,17 @@
          function crea_problema(problema, tags_por_id) {
             let problema_li = document.createElement("li");
             let problema_span = document.createElement("span");
+            let problema_a = document.createElement("a");
             let tag_div = document.createElement("div");
             problema_li.setAttribute("class", "problemas");
             problema_li.id = `problemas_${problema.id}`; 
             problema_li.id_db = problema.id;
             problema_li.appendChild(problema_span);
+            problema_li.appendChild(problema_a);
             problema_li.appendChild(tag_div);
             problema_span.textContent = problema.nombre;
+            problema_a.href = `https://omegaup.com/arena/problem/${problema.alias}`;
+            problema_a.textContent = problema.alias;
             habilita_drag(problema_li, "problema");
             habilita_drop_hermano(problema_span, "problema", problema_li, actualiza_db);
             tag_div.setAttribute("class", "tags");          
@@ -83,6 +102,7 @@
             let tema_li = document.createElement("li");
             let tema_span = document.createElement("span");
             let problemas_ul = document.createElement("ul");
+            tema_li.ul_anidado = problemas_ul;
             tema_li.setAttribute("class", "temas");
             tema_li.appendChild(tema_span);
             tema_li.appendChild(problemas_ul);
@@ -100,7 +120,8 @@
                return window.alert("Error al recibir respuesta del servidor.");
             }
             
-            let temas_por_uea = reorganiza(temas, "uea", false), problemas_por_tema = reorganiza(problemas, "tema", false), tags_por_id = reorganiza(tags, "id", true);
+            let temas_por_id = reorganiza(temas, "id", true), problemas_por_id = reorganiza(problemas, "id", true), tags_por_id = reorganiza(tags, "id", true);
+            let temas_por_uea = reorganiza(temas, "uea", false), problemas_por_tema = reorganiza(problemas, "tema", false);
             let actualiza_lista = function(uea_id) {
                document.getElementById("lista").innerHTML = "";
                for (let tema of temas_por_uea[uea_id]) {                
@@ -108,15 +129,28 @@
                }
             };
             
-            let select = document.getElementById("select");
+            let select = document.getElementById("select"), migrar_ul = document.getElementById("lista_migrar");
             for (let uea of ueas) {
-               select.options.add(new Option(uea.nombre, uea.id));         
+               let migrar_li = document.createElement("li");
+               migrar_li.textContent = uea.nombre;
+               migrar_ul.appendChild(migrar_li);
+               habilita_drop(migrar_li, "problema", function(problema_li) {
+                  let problema = problemas_por_id[problema_li.id_db];
+                  if (uea.id != temas_por_id[problema.tema].uea) {
+                     problemas_por_tema[problema.tema].splice(problemas_por_tema[problema.tema].findIndex(actual => actual.id == problema.id), 1);
+                     problema.tema = temas_por_uea[uea.id].find(actual => actual.nombre == "Sin clasificación").id;    // cambiando el tema del problema por el de "Sin clasificación" de la nueva uea (por hacer, reflejar en la base de datos)
+                     problemas_por_tema[problema.tema].push(problema);
+                     problema_li.remove( );
+                     // al llegar aqui, el id del problema está en problema.id y el nuevo tema ya está en problema.tema
+                  }
+               });
+               select.options.add(new Option(uea.nombre, uea.id));
             }
             select.onchange = function( ) {
                actualiza_lista(this.value);
             }
             select.onchange( );
          }
-      </script>     
+      </script>
    </body>
 </html>
