@@ -2,7 +2,7 @@ function habilita_drag(objeto, tipo) {
    objeto.draggable = true;
    objeto.setAttribute("data-droptype", tipo);
    objeto.ondragstart = function(evento) {
-      evento.dataTransfer.setData("text/plain", evento.target.id);
+      evento.dataTransfer.setData("text/plain", objeto.id);
       evento.dataTransfer.dropEffect = "move";
    };
 }

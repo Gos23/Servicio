@@ -8,28 +8,38 @@
             grid-template-columns: 1fr 1fr;
          }
                
-         #lista{
+         #migrar {
+            position: sticky;
+            top: 0px;
+            height: 0vh;
+         }
+         
+         #migrar .ueas ul {
+            column-count: 2;
+         }
+               
+         ul {
             color: black;
          }
          
-         #lista .temas{
+         ul .temas{
             color: black;
          }
          
-         #lista .problemas{
+         ul .problemas{
             color: black;
          }
          
-         #lista .problemas span{
+         ul .problemas span{
             margin-right: 20px;
          }
          
-         #lista .tags{
+         ul .tags{
             color: black;
             font-size: 12px;
          }
          
-         #lista.ocultar_tags .tags {         
+         ul.ocultar_tags .tags {         
             display: none;
          }
       </style>
@@ -40,11 +50,11 @@
    <body>      
       <div id="ver">
          <input type="checkbox" id="cb_tags" checked>Mostrar tags<br><br>
-         Ver problemas de: <select id="select"></select>
-         <ul id="lista"></ul>
+         Mostrar problemas de UEA: <select id="select"></select>
+         <ul id="lista_completa"></ul>
       </div>
       <div id="migrar">
-         Arrastrar problema a:
+         Arrastrar problema a tema de UEA:
          <ul id="lista_migrar"></ul>
       </div>
       <script>
@@ -52,12 +62,12 @@
             document.getElementById("lista").classList.toggle("ocultar_tags");
          }
          
-         // el <ul> principal es de temas de la uea seleccionada
-         // cada <li> de ese <ul> representa un tema
-         // cada <li> de tema tiene su propio <ul> con los problemas de la uea
+         // el <ul> principal es el de las ueas; cada <li> de ese <ul> representa una uea
+         // el <li> de cada uea tiene su propio <ul> para sus temas; cada <li> de ese <ul> representa un tema
+         // el <li> de cada tema tiene su propio <ul> para sus problemas; cada <li> de ese <ul> representa un problema
          
-         async function actualiza_db( ) {
-            let lista = document.getElementById("lista");
+         async function actualiza_db( ) {                         // corregir para restaurar su funcionamiento
+            /*let lista = document.getElementById("lista");                      
             for (let i = 0; i < lista.childNodes.length ; ++i) {
                let arr = [ ];
                if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {   
@@ -72,7 +82,7 @@
                      window.alert("Error al recibir respuesta del servidor.");
                   }
                }
-            }
+            }*/
          }
          
          function crea_problema(problema, tags_por_id) {
@@ -101,17 +111,37 @@
          function crea_tema(tema, problemas, tags_por_id) {
             let tema_li = document.createElement("li");
             let tema_span = document.createElement("span");
-            let problemas_ul = document.createElement("ul");
-            tema_li.ul_anidado = problemas_ul;
+            let problemas_ul = null;
             tema_li.setAttribute("class", "temas");
             tema_li.appendChild(tema_span);
-            tema_li.appendChild(problemas_ul);
             tema_span.textContent = tema.nombre;
-            habilita_drop_hijo(tema_span, "problema", problemas_ul);
-            for (let problema of problemas) {
-               problemas_ul.appendChild(crea_problema(problema, tags_por_id));
+            if (tags_por_id != undefined) {
+               problemas_ul = document.createElement("ul");
+               problemas_ul.id = `temas_ul_${tema.id}`;
+               tema_li.appendChild(problemas_ul);
+               for (let problema of problemas) {
+                  problemas_ul.appendChild(crea_problema(problema, tags_por_id));
+               }
+            } else {
+               problemas_ul = document.getElementById(`temas_ul_${tema.id}`);
             }
+            habilita_drop_hijo(tema_span, "problema", problemas_ul, actualiza_db);
             return tema_li;
+         }
+         
+         function crea_uea(uea, temas, problemas_por_tema, tags_por_id) {
+            let uea_li = document.createElement("li");
+            let uea_span = document.createElement("span");
+            let temas_ul = document.createElement("ul");
+            uea_li.id = `ueas_${uea.id}`; 
+            uea_li.setAttribute("class", "ueas");
+            uea_li.appendChild(uea_span);
+            uea_li.appendChild(temas_ul);
+            uea_span.textContent = uea.nombre;
+            for (let tema of temas) {
+               temas_ul.appendChild(crea_tema(tema, (problemas_por_tema != undefined ? (problemas_por_tema[tema.id] ?? [ ]) : undefined), tags_por_id));
+            }
+            return uea_li;
          }
          
          window.onload = async function( ) {
@@ -120,34 +150,17 @@
                return window.alert("Error al recibir respuesta del servidor.");
             }
             
-            let temas_por_id = reorganiza(temas, "id", true), problemas_por_id = reorganiza(problemas, "id", true), tags_por_id = reorganiza(tags, "id", true);
-            let temas_por_uea = reorganiza(temas, "uea", false), problemas_por_tema = reorganiza(problemas, "tema", false);
-            let actualiza_lista = function(uea_id) {
-               document.getElementById("lista").innerHTML = "";
-               for (let tema of temas_por_uea[uea_id]) {                
-                  document.getElementById("lista").appendChild(crea_tema(tema, (problemas_por_tema[tema.id] ?? [ ]), tags_por_id));
-               }
-            };
-            
+            let temas_por_uea = reorganiza(temas, "uea", false), problemas_por_tema = reorganiza(problemas, "tema", false), tags_por_id = reorganiza(tags, "id", true);
             let select = document.getElementById("select"), migrar_ul = document.getElementById("lista_migrar");
             for (let uea of ueas) {
-               let migrar_li = document.createElement("li");
-               migrar_li.textContent = uea.nombre;
-               migrar_ul.appendChild(migrar_li);
-               habilita_drop(migrar_li, "problema", function(problema_li) {
-                  let problema = problemas_por_id[problema_li.id_db];
-                  if (uea.id != temas_por_id[problema.tema].uea) {
-                     problemas_por_tema[problema.tema].splice(problemas_por_tema[problema.tema].findIndex(actual => actual.id == problema.id), 1);
-                     problema.tema = temas_por_uea[uea.id].find(actual => actual.nombre == "Sin clasificación").id;    // cambiando el tema del problema por el de "Sin clasificación" de la nueva uea (por hacer, reflejar en la base de datos)
-                     problemas_por_tema[problema.tema].push(problema);
-                     problema_li.remove( );
-                     // al llegar aqui, el id del problema está en problema.id y el nuevo tema ya está en problema.tema
-                  }
-               });
+               document.getElementById("lista_completa").appendChild(crea_uea(uea, (temas_por_uea[uea.id] ?? [ ]), problemas_por_tema, tags_por_id));
+               document.getElementById("lista_migrar").appendChild(crea_uea(uea, (temas_por_uea[uea.id] ?? [ ])));
                select.options.add(new Option(uea.nombre, uea.id));
             }
             select.onchange = function( ) {
-               actualiza_lista(this.value);
+               for (let uea of ueas) {
+                  document.getElementById(`ueas_${uea.id}`).style.display = (select.value == uea.id ? "" : "none");
+               }
             }
             select.onchange( );
          }
