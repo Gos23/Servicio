@@ -59,30 +59,37 @@
       </div>
       <script>
          document.getElementById('cb_tags').onchange = function( ) {
-            document.getElementById("lista").classList.toggle("ocultar_tags");
+            document.getElementById("lista_completa").classList.toggle("ocultar_tags");
          }
          
          // el <ul> principal es el de las ueas; cada <li> de ese <ul> representa una uea
          // el <li> de cada uea tiene su propio <ul> para sus temas; cada <li> de ese <ul> representa un tema
          // el <li> de cada tema tiene su propio <ul> para sus problemas; cada <li> de ese <ul> representa un problema
          
-         async function actualiza_db( ) {                         // corregir para restaurar su funcionamiento
-            /*let lista = document.getElementById("lista");                      
-            for (let i = 0; i < lista.childNodes.length ; ++i) {
-               let arr = [ ];
-               if (lista.childNodes[i].nodeType == Node.ELEMENT_NODE) {   
-                  let lista_problemas = lista.childNodes[i].lastChild;
-                  for (let j = 0; j < lista_problemas.childNodes.length; ++j) {
-                     if (lista_problemas.childNodes[j].nodeType == Node.ELEMENT_NODE) { 
-                        arr.push(lista_problemas.childNodes[j].id_db);
+         async function actualiza_db( ) {                         
+            let lista_UEA = document.getElementById("lista_completa");                      
+            for (let i = 0; i < lista_UEA.childNodes.length ; ++i) {
+               if (lista_UEA.childNodes[i].nodeType == Node.ELEMENT_NODE) {                
+                  let lista_tema = lista_UEA.childNodes[i].lastChild; 
+                  for (let j = 0; j < lista_tema.childNodes.length; ++j) {
+                     let arr = [ ];
+                     let id_Tema = 0;
+                     if (lista_tema.childNodes[j].nodeType == Node.ELEMENT_NODE) { 
+                        let lista_problema = lista_tema.childNodes[j].lastChild;
+                        id_Tema = lista_tema.childNodes[j].id_db;
+                        for (let k = 0; k < lista_problema.childNodes.length; ++k) {                        
+                           if (lista_problema.childNodes[k].nodeType == Node.ELEMENT_NODE) {
+                               arr.push(lista_problema.childNodes[k].id_db);                                                         }
+                        }                                         
+                        let res = await ajax_post("reordena_problemas.php", { "arr": JSON.stringify(arr), "id_Tema": JSON.stringify(id_Tema) } , 1000);      
+                        if (res instanceof Error) {
+                           window.alert("Error al recibir respuesta del servidor.");
+                        }
                      }
                   }
-                  let res = await ajax_post("reordena_problemas.php", { "arr": JSON.stringify(arr) } , 1000);      
-                  if (res instanceof Error) {
-                     window.alert("Error al recibir respuesta del servidor.");
-                  }
+
                }
-            }*/
+            }
          }
          
          function crea_problema(problema, tags_por_id) {
@@ -115,6 +122,7 @@
             tema_li.setAttribute("class", "temas");
             tema_li.appendChild(tema_span);
             tema_span.textContent = tema.nombre;
+            tema_li.id_db = tema.id;
             if (tags_por_id != undefined) {
                problemas_ul = document.createElement("ul");
                problemas_ul.id = `temas_ul_${tema.id}`;
