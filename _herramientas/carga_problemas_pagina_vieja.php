@@ -15,7 +15,7 @@
    }
    
    $tema = null; $orden = null;
-   foreach (file('problemas_pagina.txt', FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES) as $fila) {
+   foreach (file('pagina_vieja.txt', FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES) as $fila) {
       if (preg_match('#omegaup.com/arena/problem/((\w|-)+)#', $fila, $matches)) {
          $alias = $matches[1]; $nombre = obten_nombre($alias, $conexion);
          if ($tema == null) {
