@@ -28,6 +28,8 @@ CREATE TABLE problemas (
    nombre TEXT NOT NULL,
    tema INT NOT NULL,
    orden INT NOT NULL DEFAULT 0,
+   autor VARCHAR(50) NOT NULL,
+   fuente VARCHAR(256) NOT NULL,
    
    PRIMARY KEY (id),
    UNIQUE (alias),
@@ -49,7 +51,7 @@ CREATE TABLE tags_problema (
    tag INT NOT NULL,
    
    UNIQUE (problema, tag),
-   FOREIGN KEY (problema) REFERENCES problemas (id),
+   FOREIGN KEY (problema) REFERENCES problemas (id) ON DELETE CASCADE,
    FOREIGN KEY (tag) REFERENCES tags (id)
 ) ENGINE=InnoDB;
 

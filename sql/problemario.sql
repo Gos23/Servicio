@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS problemario;
+CREATE DATABASE problemario;
+USE problemario;
+
 -- phpMyAdmin SQL Dump
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
@@ -1844,7 +1848,7 @@ ALTER TABLE `problemas`
 -- Filtros para la tabla `tags_problema`
 --
 ALTER TABLE `tags_problema`
-  ADD CONSTRAINT `tags_problema_ibfk_1` FOREIGN KEY (`problema`) REFERENCES `problemas` (`id`),
+  ADD CONSTRAINT `tags_problema_ibfk_1` FOREIGN KEY (`problema`) REFERENCES `problemas` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `tags_problema_ibfk_2` FOREIGN KEY (`tag`) REFERENCES `tags` (`id`);
 
 --

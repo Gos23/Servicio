@@ -1,0 +1,599 @@
+Entrada y salida
+https://omegaup.com/arena/problem/Hola-Mundo-c                 EXTERNO
+https://omegaup.com/arena/problem/Introduccion-a-OmegaUp
+https://omegaup.com/arena/problem/Tres-Numeros-Al-Reves/          EXTERNO
+Cálculos aritméticos
+https://omegaup.com/arena/problem/Conversion-temperaturas
+https://omegaup.com/arena/problem/Las-hachas-de-Gilgamesh-y-Enkidu
+https://omegaup.com/arena/problem/Programando-formulas
+https://omegaup.com/arena/problem/Calculos-mentales-competitivos
+https://omegaup.com/arena/problem/Evaluando-formulas-en-sucesion
+https://omegaup.com/arena/problem/Porque-podemos-programar
+https://omegaup.com/arena/problem/Evaluando-una-formula-gigante
+https://omegaup.com/arena/problem/Una-formula-con-muchas-divisione
+https://omegaup.com/arena/problem/Alicia-y-la-carrera-de-animales
+https://omegaup.com/arena/problem/Los-tacos-de-Juan
+https://omegaup.com/arena/problem/La-banda-robatamales
+https://omegaup.com/arena/problem/Repartiendo-cachorros
+https://omegaup.com/arena/problem/Las-tartas-de-la-reina-roja
+https://omegaup.com/arena/problem/La-Medida-del-Tiempo
+https://omegaup.com/arena/problem/Calendario-cuenta-larga
+https://omegaup.com/arena/problem/britanicas-longitud
+https://omegaup.com/arena/problem/Unidades-britanicas-de-volumen
+https://omegaup.com/arena/problem/La-hora-en-un-planeta-lejado
+https://omegaup.com/arena/problem/El-tablero-en-forma-de-dona
+https://omegaup.com/arena/problem/Area-de-una-elipse
+https://omegaup.com/arena/problem/Sistemas-de-ecuaciones-1sol
+https://omegaup.com/arena/problem/barca
+https://omegaup.com/arena/problem/InversionesBanco
+https://omegaup.com/arena/problem/Venta-de-gasolina
+https://omegaup.com/arena/problem/Dados-apilados
+https://omegaup.com/arena/problem/asientos-jurado
+Toma de decisiones
+https://omegaup.com/arena/problem/Par-o-Impar/               EXTERNO
+https://omegaup.com/arena/problem/Fahrenheit-a-Centigrados
+https://omegaup.com/arena/problem/Cuantos-valen-7
+https://omegaup.com/arena/problem/El-menor-de-tres-numeros/           EXTERNO
+https://omegaup.com/arena/problem/Mayor-menor
+https://omegaup.com/arena/problem/Aprobado-o-reprobado
+https://omegaup.com/arena/problem/Secuencias-simetricas
+https://omegaup.com/arena/problem/Triangulo-equilatero
+https://omegaup.com/arena/problem/Detectando-el-orden
+https://omegaup.com/arena/problem/Sana-o-insana-distancia
+https://omegaup.com/arena/problem/Escamitas
+https://omegaup.com/arena/problem/Paquetes-vacunas
+https://omegaup.com/arena/problem/Mintiendo-sobre-las-cifras-de-
+https://omegaup.com/arena/problem/puertecillas
+https://omegaup.com/arena/problem/Interseccion-de-intervalos
+https://omegaup.com/arena/problem/Toma-de-decisiones
+https://omegaup.com/arena/problem/El-perrito-que-quiere-un-hueso
+https://omegaup.com/arena/problem/Calculos-condicionales
+https://omegaup.com/arena/problem/Fila-Sana
+https://omegaup.com/arena/problem/Uniendo-puntos-con-segmentos-cor
+https://omegaup.com/arena/problem/Algoritmo-de-Gauss
+https://omegaup.com/arena/problem/dia-semana
+https://omegaup.com/arena/problem/Tipo-de-triangulo
+https://omegaup.com/arena/problem/Calculando-el-area-de-un-triangu
+https://omegaup.com/arena/problem/Cuantos-dias-tiene-febrero
+https://omegaup.com/arena/problem/Contando-anos-bisiestos
+https://omegaup.com/arena/problem/Prismas-rotados
+https://omegaup.com/arena/problem/lapizlazuli
+https://omegaup.com/arena/problem/recta-in-recta
+https://omegaup.com/arena/problem/Una-serie-poco-interesante
+https://omegaup.com/arena/problem/El-mini-juego-de-la-vida
+https://omegaup.com/arena/problem/Jugando-a-los-dardos
+https://omegaup.com/arena/problem/Calculando-con-masmenos
+https://omegaup.com/arena/problem/Intercambios-minimos
+https://omegaup.com/arena/problem/inter-segmentos
+https://omegaup.com/arena/problem/sec
+https://omegaup.com/arena/problem/sed
+https://omegaup.com/arena/problem/abm
+https://omegaup.com/arena/problem/Ordenando-numeros
+https://omegaup.com/arena/problem/El-lado-mas-corto
+https://omegaup.com/arena/problem/Puntos-colineales
+https://omegaup.com/arena/problem/Sonando-con-numeros-escalera
+https://omegaup.com/arena/problem/Los-asientos-en-la-loca-mesa-del
+https://omegaup.com/arena/problem/Ahorros             ADAPTACION
+https://omegaup.com/arena/problem/Interseccion-de-Cuadrados
+https://omegaup.com/arena/problem/air
+https://omegaup.com/arena/problem/shv
+https://omegaup.com/arena/problem/amt
+Ciclos
+https://omegaup.com/arena/problem/m3                                         EXTERNO
+https://omegaup.com/arena/problem/Un-proceso-iterativo-sencillo
+https://omegaup.com/arena/problem/Suma-de-los-digitos                        EXTERNO
+https://omegaup.com/arena/problem/Pares-e-impares
+https://omegaup.com/arena/problem/Divisores-positivos
+https://omegaup.com/arena/problem/NumDivisores
+https://omegaup.com/arena/problem/Suma-Impares/
+https://omegaup.com/arena/problem/Divide-y-sumaras
+https://omegaup.com/arena/problem/Calculando-el-logaritmo-base-2
+https://omegaup.com/arena/problem/Elevando-al-cuadrado-UAM
+https://omegaup.com/arena/problem/La-edad-de-John-Carter
+https://omegaup.com/arena/problem/gusano_escalador                           EXTERNO
+https://omegaup.com/arena/problem/ciclo_mientras_no_cero                     EXTERNO
+https://omegaup.com/arena/problem/volumenNcubos
+https://omegaup.com/arena/problem/areaNcirculos
+https://omegaup.com/arena/problem/CR-Leyendo-Varios-datos                    EXTERNO
+https://omegaup.com/arena/problem/Bolsas-de-dulces                           EXTERNO
+https://omegaup.com/arena/problem/1-Obtener-promedio                         EXTERNO
+https://omegaup.com/arena/problem/Encuentra-el-mayor                         EXTERNO
+https://omegaup.com/arena/problem/Mosaicos-de-caracteres
+https://omegaup.com/arena/problem/A-pares-y-nones
+https://omegaup.com/arena/problem/tablas-multiplos
+https://omegaup.com/arena/problem/Practicando-ciclos
+https://omegaup.com/arena/problem/Minimo-comun-multiplo-de-varios-
+https://omegaup.com/arena/problem/Busqueda-de-naturales-sucesivos-
+https://omegaup.com/arena/problem/Una-funcion-de-suma-triangular
+https://omegaup.com/arena/problem/Entrando-al-supermercado
+https://omegaup.com/arena/problem/Dibujando-un-tache
+https://omegaup.com/arena/problem/Alicia-y-la-mermelada-de-naranja
+https://omegaup.com/arena/problem/El-Caracol
+https://omegaup.com/arena/problem/Disparejas
+https://omegaup.com/arena/problem/fContinuas
+https://omegaup.com/arena/problem/Suma-De-Potencias-original
+https://omegaup.com/arena/problem/El-baile-alrededor-de-Alicia
+https://omegaup.com/arena/problem/Uniendo-puntos
+https://omegaup.com/arena/problem/Acotando-la-sumatoria
+https://omegaup.com/arena/problem/Calculos-iterativos
+https://omegaup.com/arena/problem/Sumatoria-de-sumatorias
+https://omegaup.com/arena/problem/El-problema-3n1
+https://omegaup.com/arena/problem/bpb
+https://omegaup.com/arena/problem/toro
+https://omegaup.com/arena/problem/aguas
+https://omegaup.com/arena/problem/placas-bici
+https://omegaup.com/arena/problem/Cuadrados-blancos-y-negros
+https://omegaup.com/arena/problem/Dibujando-un-triangulo
+https://omegaup.com/arena/problem/Asteriscos-1                            EXTERNO
+https://omegaup.com/arena/problem/El-k-esimo-numero-primo
+https://omegaup.com/arena/problem/suma-muchos-p/
+https://omegaup.com/arena/problem/Primos-gemelos
+https://omegaup.com/arena/problem/Mensaje-de-Amor                         EXTERNO
+https://omegaup.com/arena/problem/supresores_de_picos                     EXTERNO
+https://omegaup.com/arena/problem/nofib                                   EXTERNO
+https://omegaup.com/arena/problem/La-secuencia-infinita
+https://omegaup.com/arena/problem/Cuadernos                 ADAPTACION
+https://omegaup.com/arena/problem/Los-triangulos-original
+https://omegaup.com/arena/problem/triang-acut
+https://omegaup.com/arena/problem/Pitagoricas
+https://omegaup.com/arena/problem/Suma-de-primos
+https://omegaup.com/arena/problem/Narrando-la-carrera-de-caballos
+https://omegaup.com/arena/problem/Jugando-a-las-cartas
+https://omegaup.com/arena/problem/camino-subterraneo-shamash
+https://omegaup.com/arena/problem/El-hechicero-y-los-triangulos
+https://omegaup.com/arena/problem/El-Rey-Gnomo                          ADAPTACION
+https://omegaup.com/arena/problem/El-primer-juego-del-parque
+https://omegaup.com/arena/problem/Numeros-en-media-espiral
+https://omegaup.com/arena/problem/Carritos-chocones
+https://omegaup.com/arena/problem/Extremos-de-una-funcion-cubica
+https://omegaup.com/arena/problem/Alicia-y-los-cambios-de-tamano
+https://omegaup.com/arena/problem/Triangulos-isosceles
+https://omegaup.com/arena/problem/Generando-rectangulos
+https://omegaup.com/arena/problem/pdt
+https://omegaup.com/arena/problem/tdt
+https://omegaup.com/arena/problem/tpi
+https://omegaup.com/arena/problem/efr
+https://omegaup.com/arena/problem/sdc
+https://omegaup.com/arena/problem/ddc
+https://omegaup.com/arena/problem/snc
+https://omegaup.com/arena/problem/see
+https://omegaup.com/arena/problem/Fer-escapando                              EXTERNO
+Arreglos
+https://omegaup.com/arena/problem/Ignorando-los-primeros-elementos
+https://omegaup.com/arena/problem/Ignorando-los-ultimos-elementos
+https://omegaup.com/arena/problem/Reverso
+https://omegaup.com/arena/problem/Secuencias-iguales
+https://omegaup.com/arena/problem/Conjunto-Capicua                           EXTERNO
+https://omegaup.com/arena/problem/Suma-de-vectores
+https://omegaup.com/arena/problem/Buscar-y-contar
+https://omegaup.com/arena/problem/Alicia-y-el-cachorro-saltarin
+https://omegaup.com/arena/problem/Comparando-calificaciones
+https://omegaup.com/arena/problem/Girando-vector
+https://omegaup.com/arena/problem/Forzando-la-caja-fuerte
+https://omegaup.com/arena/problem/Modificando-un-arreglo
+https://omegaup.com/arena/problem/Filtrando-multiplos
+https://omegaup.com/arena/problem/Vector-dominante
+https://omegaup.com/arena/problem/Sumando-elementos-opuestos-de-un
+https://omegaup.com/arena/problem/Producto-punto-de-dos-vectores
+https://omegaup.com/arena/problem/Promoviendo-la-sana-distancia
+https://omegaup.com/arena/problem/Centro-vector
+https://omegaup.com/arena/problem/Saltando-por-el-arreglo
+https://omegaup.com/arena/problem/Omitiendo-el-entero-mas-grande
+https://omegaup.com/arena/problem/El-cuello-de-Alicia-y-los-nidos-
+https://omegaup.com/arena/problem/La-moda-y-sus-signos
+https://omegaup.com/arena/problem/Ordena-Basico-1/
+https://omegaup.com/arena/problem/Intervalo-maximo-consecutivo
+https://omegaup.com/arena/problem/spi
+https://omegaup.com/arena/problem/ozz
+https://omegaup.com/arena/problem/subterraneo-camino-shamash
+https://omegaup.com/arena/problem/Maximo-subarreglo
+https://omegaup.com/arena/problem/Saltando-por-el-arreglo-reloaded
+https://omegaup.com/arena/problem/Modificando-secuencias-a-lo-loco
+https://omegaup.com/arena/problem/nbf
+https://omegaup.com/arena/problem/bce
+https://omegaup.com/arena/problem/sdp
+https://omegaup.com/arena/problem/burro
+https://omegaup.com/arena/problem/sjc
+Matrices
+https://omegaup.com/arena/problem/sumar-matrices                          EXTERNO
+https://omegaup.com/arena/problem/vrl
+https://omegaup.com/arena/problem/gjg
+https://omegaup.com/arena/problem/Matriz-Transpuesta-UP/
+https://omegaup.com/arena/problem/Producto-de-matrices
+https://omegaup.com/arena/problem/Matrices-giradas
+https://omegaup.com/arena/problem/1er-ccp-tapete/
+https://omegaup.com/arena/problem/Matrices-concentricas
+https://omegaup.com/arena/problem/Pagando-los-platos-rotos/
+https://omegaup.com/arena/problem/Los-cuadrados-semimagicos
+https://omegaup.com/arena/problem/Demostrando-con-matrices                EXTERNO
+https://omegaup.com/arena/problem/Buscaminas-
+https://omegaup.com/arena/problem/Interseccion
+https://omegaup.com/arena/problem/Las-flores-multicolores-del-jard
+https://omegaup.com/arena/problem/Ordenando-columnas
+https://omegaup.com/arena/problem/Relaciones-numericas
+https://omegaup.com/arena/problem/mee
+https://omegaup.com/arena/problem/med
+https://omegaup.com/arena/problem/Matriz-serpentina
+https://omegaup.com/arena/problem/mbg
+https://omegaup.com/arena/problem/svc
+https://omegaup.com/arena/problem/Cortando-el-Cesped-       ADAPTACION
+https://omegaup.com/arena/problem/rbn
+https://omegaup.com/arena/problem/cdc
+https://omegaup.com/arena/problem/Timbiriche
+Caracteres y cadenas
+https://omegaup.com/arena/problem/Consonantes-y-vocales
+https://omegaup.com/arena/problem/El-caballo-de-John-Carter
+https://omegaup.com/arena/problem/Jabberwocky
+https://omegaup.com/arena/problem/Invirtiendo-palabras
+https://omegaup.com/arena/problem/Coincidencias-de-una-cadena-con-
+https://omegaup.com/arena/problem/Clave-de-usuario
+https://omegaup.com/arena/problem/2da-ccp-terreno
+https://omegaup.com/arena/problem/Analizando-y-transformando-una-c
+https://omegaup.com/arena/problem/Unicornio
+https://omegaup.com/arena/problem/1er-ccp-bloques
+https://omegaup.com/arena/problem/Maquina-descompuesta
+https://omegaup.com/arena/problem/Maquina-descompuesta2
+https://omegaup.com/arena/problem/Super-UAMKid-Run
+https://omegaup.com/arena/problem/Palabras-prohibidas
+https://omegaup.com/arena/problem/Conversion-a-decimal
+https://omegaup.com/arena/problem/Ordenando-las-letras-de-la-linea
+https://omegaup.com/arena/problem/Letras
+https://omegaup.com/arena/problem/rda
+https://omegaup.com/arena/problem/ecd
+https://omegaup.com/arena/problem/Inversiones-e-intercalaciones
+https://omegaup.com/arena/problem/jdl
+https://omegaup.com/arena/problem/nmd
+https://omegaup.com/arena/problem/dbn
+https://omegaup.com/arena/problem/Mensajes-DRM                       ADAPTACION
+https://omegaup.com/arena/problem/sopaletras
+https://omegaup.com/arena/problem/pdn
+https://omegaup.com/arena/problem/mbp
+https://omegaup.com/arena/problem/Encuentra-el-numero-capicua                         EXTERNO
+https://omegaup.com/arena/problem/Numeros-en-binario-al-reves
+https://omegaup.com/arena/problem/muralla_humbaba
+https://omegaup.com/arena/problem/El-peloton-de-soldados-marcianos
+https://omegaup.com/arena/problem/Sak
+https://omegaup.com/arena/problem/Alicia-y-la-llave-dorada
+https://omegaup.com/arena/problem/1er-ccp-bloques/
+https://omegaup.com/arena/problem/Alicia-y-las-frases-volteadas
+https://omegaup.com/arena/problem/La-loca-hora-del-te
+https://omegaup.com/arena/problem/Limitando-Aplicaciones       ADAPTACION
+Estructuras
+https://omegaup.com/arena/problem/Consultando-Registros
+https://omegaup.com/arena/problem/El-banco
+https://omegaup.com/arena/problem/Rutina-en-un-Gimnasio-Lleno     ADAPTACION
+Entrada y salida con presentación
+https://omegaup.com/arena/problem/Una-lista-inmensa-de-sumas-y-res
+https://omegaup.com/arena/problem/Anyos-con-dos-y-cuatro-digitos
+https://omegaup.com/arena/problem/Nombres-y-apellidos-sanos
+https://omegaup.com/arena/problem/La-premiacion-de-la-carrera-loca
+https://omegaup.com/arena/problem/Cada-Segundo-Cuenta-                     ADAPTACION
+https://omegaup.com/arena/problem/Evaluar-polinomios
+https://omegaup.com/arena/problem/Supermercado
+https://omegaup.com/arena/problem/Contando-los-enteros-de-la-linea
+https://omegaup.com/arena/problem/dem
+https://omegaup.com/arena/problem/SupermercadoDificil
+https://omegaup.com/arena/problem/Parque-de-Diversiones                    ADAPTACION
+https://omegaup.com/arena/problem/Alicia-y-el-estante-desordenado
+
+Algoritmia y eficiencia
+https://omegaup.com/arena/problem/Calculo-de-sumatoria
+https://omegaup.com/arena/problem/Sumas-sobre-arreglos-completos
+https://omegaup.com/arena/problem/Sumando-enteros-por-paridad
+https://omegaup.com/arena/problem/O-todos-o-ninguno
+https://omegaup.com/arena/problem/Contando-los-hoteles-de-la-ciuda
+https://omegaup.com/arena/problem/Sumando-todos-los-subarreglos
+https://omegaup.com/arena/problem/Suma-de-intervalos
+https://omegaup.com/arena/problem/Sumando-intervalos-de-enteros
+https://omegaup.com/arena/problem/Cardinalidad-de-un-conjunto
+https://omegaup.com/arena/problem/Alicia-y-los-animales-mojados
+https://omegaup.com/arena/problem/Los-animales-doblemente-mojados
+https://omegaup.com/arena/problem/Incrementando-intervalos
+https://omegaup.com/arena/problem/Formados-con-sana-distancia
+https://omegaup.com/arena/problem/rama
+https://omegaup.com/arena/problem/El-extrano-paisaje-de-Marte
+Recursión
+https://omegaup.com/arena/problem/Numeros-australianos
+https://omegaup.com/arena/problem/frutos
+https://omegaup.com/arena/problem/La-poblacion-de-marcianos-verdes
+https://omegaup.com/arena/problem/Recurriendo-a-la-distancia
+https://omegaup.com/arena/problem/El-jurado-de-la-corte-de-la-Rein
+https://omegaup.com/arena/problem/Multiplicando-enteros-usando-ope
+https://omegaup.com/arena/problem/Reproduccion-de-bichos
+https://omegaup.com/arena/problem/La-cancion-de-la-sopa-de-tortuga
+https://omegaup.com/arena/problem/La-cuadrilla-de-langostas
+https://omegaup.com/arena/problem/Primos-fractales
+https://omegaup.com/arena/problem/Inversiones-recursivas
+https://omegaup.com/arena/problem/Modificando-secuencias-recursiva
+https://omegaup.com/arena/problem/Modificando-secuencias-recursiv2
+https://omegaup.com/arena/problem/Calificaciones-recursivas
+Ordenamiento
+https://omegaup.com/arena/problem/Operaciones-triviales-sobre-un-a
+https://omegaup.com/arena/problem/cactus_horizonte
+https://omegaup.com/arena/problem/Calculo-de-la-mediana
+https://omegaup.com/arena/problem/Los-ratones-de-Uruk
+https://omegaup.com/arena/problem/remos
+https://omegaup.com/arena/problem/montanas
+https://omegaup.com/arena/problem/Ordenando-de-forma-ascendente-y-
+https://omegaup.com/arena/problem/El-par-de-guantes-del-Conejo-Bla
+https://omegaup.com/arena/problem/Mezcla-de-numeros
+https://omegaup.com/arena/problem/Secuencias-saltarinas
+https://omegaup.com/arena/problem/gigantes
+https://omegaup.com/arena/problem/Informando-a-los-desinformados
+https://omegaup.com/arena/problem/Muletillas-de-robots
+https://omegaup.com/arena/problem/El-desfile-de-perritos
+https://omegaup.com/arena/problem/Ordenando-por-cantidad-de-cifras
+https://omegaup.com/arena/problem/Ordenando-por-el-valor-de-la-pot
+https://omegaup.com/arena/problem/Ordenando-por-la-parte-decimal
+https://omegaup.com/arena/problem/Ordenando-por-distancia-al-orige
+https://omegaup.com/arena/problem/Ordenando-por-magnitud
+https://omegaup.com/arena/problem/Orden-raro-por-divisores
+https://omegaup.com/arena/problem/swap-min-sort
+https://omegaup.com/arena/problem/Omitiendo-la-interseccion
+https://omegaup.com/arena/problem/Relaciones-de-conjuntos
+Búsqueda binaria
+https://omegaup.com/arena/problem/Busqueda-binaria-p
+https://omegaup.com/arena/problem/aldp
+https://omegaup.com/arena/problem/El-juego-de-la-silla
+https://omegaup.com/arena/problem/Informados-de-las-medidas-de-hig
+https://omegaup.com/arena/problem/El-zorro-y-las-uvas
+https://omegaup.com/arena/problem/El-cuervo-y-la-jarra
+https://omegaup.com/arena/problem/johncartercactus
+https://omegaup.com/arena/problem/Las-rosas-del-jardin-de-la-Reina
+https://omegaup.com/arena/problem/Promedios-en-intervalos
+https://omegaup.com/arena/problem/ventanas_dormitorio_marciano
+https://omegaup.com/arena/problem/suma-de-la-Reina-Roja
+https://omegaup.com/arena/problem/Hablando-entre-robots
+https://omegaup.com/arena/problem/Las-invitaciones-al-juego-de-cro
+https://omegaup.com/arena/problem/Cambio-de-nombres
+https://omegaup.com/arena/problem/Planetas                  EXTERNO
+Memoria dinámica
+https://omegaup.com/arena/problem/Enteros-distintos
+https://omegaup.com/arena/problem/Los-flamencos-de-la-Reina-Roja
+https://omegaup.com/arena/problem/Procesando-calificaciones-de-alu
+Pilas y colas
+https://omegaup.com/arena/problem/Pilas-y-colas
+https://omegaup.com/arena/problem/dme
+https://omegaup.com/arena/problem/ocp
+https://omegaup.com/arena/problem/corazas
+https://omegaup.com/arena/problem/Las-bitacoras-de-la-sana-distanc
+https://omegaup.com/arena/problem/Sumando-con-pilas
+https://omegaup.com/arena/problem/La-pila-cola
+https://omegaup.com/arena/problem/La-senora-de-los-tamales
+https://omegaup.com/arena/problem/Formados-para-comer
+https://omegaup.com/arena/problem/Los-erizos-de-la-practica-de-cro
+https://omegaup.com/arena/problem/soldados
+https://omegaup.com/arena/problem/grupos
+https://omegaup.com/arena/problem/Dobles-colas
+https://omegaup.com/arena/problem/banco-clientes-no-preferentes
+https://omegaup.com/arena/problem/Los-bebes-marcianos
+https://omegaup.com/arena/problem/Pociones-y-pastelillos
+https://omegaup.com/arena/problem/La-loca-mesa-del-te
+https://omegaup.com/arena/problem/Maximo-Elemento-en-la-Pila      EXTERNO
+Listas enlazadas
+https://omegaup.com/arena/problem/Uniendo-globos
+https://omegaup.com/arena/problem/Nodos-alcanzables
+https://omegaup.com/arena/problem/Listas-enlazadas
+https://omegaup.com/arena/problem/fila
+https://omegaup.com/arena/problem/itp18-premiacion          EXTERNO
+https://omegaup.com/arena/problem/De-una-lista-a-otra
+https://omegaup.com/arena/problem/Reubicando-elementos-de-una-list
+https://omegaup.com/arena/problem/Visitando-una-lista-con-modifica
+https://omegaup.com/arena/problem/Listas-enlazadas-y-dobles-colas
+Montículos
+https://omegaup.com/arena/problem/La-huida-de-los-jardineros-respo
+https://omegaup.com/arena/problem/El-ataque-de-las-cartas
+https://omegaup.com/arena/problem/Premiando-a-los-consumidores
+https://omegaup.com/arena/problem/Simulando-Age-of-Empires
+https://omegaup.com/arena/problem/cbs
+Árboles de búsqueda
+https://omegaup.com/arena/problem/Los-soldados-culpables-de-nada
+https://omegaup.com/arena/problem/Preorden-de-un-arbol
+https://omegaup.com/arena/problem/Arboles-binarios-sin-balancear
+https://omegaup.com/arena/problem/arboles
+https://omegaup.com/arena/problem/Encuestando-a-la-gente-de-la-col
+https://omegaup.com/arena/problem/Los-brotes-de-rosas-blancas
+https://omegaup.com/arena/problem/El-desfile-de-perritos-alternati
+https://omegaup.com/arena/problem/Interprete-programacion
+https://omegaup.com/arena/problem/Subiendo-y-bajando-por-las-ramas
+https://omegaup.com/arena/problem/jerarquia_soldados_marcianos
+https://omegaup.com/arena/problem/Nodos-visitados-de-un-arbol
+Gráficas
+https://omegaup.com/arena/problem/Invirtiendo-aristas
+https://omegaup.com/arena/problem/Los-corazones-de-pintura-roja
+https://omegaup.com/arena/problem/Recorridos-amplitud-profundidad
+https://omegaup.com/arena/problem/Divulgando-las-noticias            ADAPTACION
+https://omegaup.com/arena/problem/Componentes-conexas-de-una-grafi
+https://omegaup.com/arena/problem/Union-pertenencia
+https://omegaup.com/arena/problem/conremos
+https://omegaup.com/arena/problem/El-edificio-de-los-vecinos-curio
+https://omegaup.com/arena/problem/OIEG2013SSB                        EXTERNO
+https://omegaup.com/arena/problem/La-visita-al-Sombrerero-y-a-la-L
+https://omegaup.com/arena/problem/busenkidu
+https://omegaup.com/arena/problem/uruk
+https://omegaup.com/arena/problem/Atrapando-al-ladron
+https://omegaup.com/arena/problem/colosus-Laberinto                  EXTERNO
+https://omegaup.com/arena/problem/Escape-del-laberinto               EXTERNO
+https://omegaup.com/arena/problem/Ordenamiento-topologico
+https://omegaup.com/arena/problem/OMI-2017-Esperanza                 EXTERNO
+https://omegaup.com/arena/problem/Camino-mas-corto-con-cupones
+https://omegaup.com/arena/problem/Acmar-vs-Ibmar                     ADAPTACION
+https://omegaup.com/arena/problem/Clausura-de-carreteras             ADAPTACION
+https://omegaup.com/arena/problem/Que-cursos-puedo-inscribir
+
+Almacenamiento primario y cachés
+https://omegaup.com/arena/problem/Operaciones-sobre-arreglos-gigan
+https://omegaup.com/arena/problem/Maximo-de-matrices-por-columnas
+https://omegaup.com/arena/problem/Invirtiendo-segmentos-de-una-mat
+Dispersión
+https://omegaup.com/arena/problem/Cadena-de-maxima-frecuencia
+https://omegaup.com/arena/problem/Busqueda-muy-eficiente-de-elemen
+https://omegaup.com/arena/problem/cadenas-iguales
+https://omegaup.com/arena/problem/Buscando-cadenas-con-poca-memori
+https://omegaup.com/arena/problem/Busqueda-patrones-dispersion
+Entrada y salida sin formato
+https://omegaup.com/arena/problem/Maximo-de-enteros-sin-formato
+https://omegaup.com/arena/problem/Lectura-y-escritura-de-datos
+Almacenamiento externo
+https://omegaup.com/arena/problem/Suma-de-intervalos-con-poca-memo
+Posicionamiento en archivos
+https://omegaup.com/arena/problem/El-k-esimo-entero-de-un-archivo
+https://omegaup.com/arena/problem/Invirtiendo-los-enteros-de-un-ar
+https://omegaup.com/arena/problem/De-los-extremos-al-centro-v2
+Fragmentación de datos
+https://omegaup.com/arena/problem/archivos-fragmentados
+https://omegaup.com/arena/problem/Leyendo-archivos-fragmentados-co
+Ordenamiento externo
+https://omegaup.com/arena/problem/Ordenando-los-dos-grupos-de-un-a
+https://omegaup.com/arena/problem/Torneo-de-listas-ordenadas
+https://omegaup.com/arena/problem/Ordenando-archivos-v2
+Búsqueda externa
+https://omegaup.com/arena/problem/Busqueda-simple-sobre-un-archivo
+https://omegaup.com/arena/problem/Busqueda-sobre-un-archivo-v2
+Manipulación de cadenas
+https://omegaup.com/arena/problem/Cuenta-de-prefijos
+https://omegaup.com/arena/problem/ppd
+https://omegaup.com/arena/problem/caracteres_subcadenas
+https://omegaup.com/arena/problem/Partiendo-cadenas
+https://omegaup.com/arena/problem/Subcadena-comun-mas-larga
+Compresión de datos
+https://omegaup.com/arena/problem/Compresion-de-cadenas-facil
+https://omegaup.com/arena/problem/Reverso-de-numeros-parecidos
+https://omegaup.com/arena/problem/Compresion-de-cadenas
+Mantenimiento de registros y compactación
+https://omegaup.com/arena/problem/Compactacion-de-archivos
+https://omegaup.com/arena/problem/Sobreescribiendo-cadenas-de-long
+https://omegaup.com/arena/problem/Insercion-y-borrado-de-registro
+
+Análisis de correctitud y complejidad
+https://omegaup.com/arena/problem/Subarreglo-de-suma-maxima
+https://omegaup.com/arena/problem/scm
+https://omegaup.com/arena/problem/Las-guirnaldas-de-margaritas
+https://omegaup.com/arena/problem/Resolviendo-una-recurrencia
+https://omegaup.com/arena/problem/Resolviendo-una-recurrencia-relo
+https://omegaup.com/arena/problem/Resolviendo-una-recurrencia-la-r
+Recursión y ecuaciones de recurrencia
+https://omegaup.com/arena/problem/Fibonacci-recursivo
+https://omegaup.com/arena/problem/Analizando-merge-sort
+https://omegaup.com/arena/problem/Analizando-quicksort
+https://omegaup.com/arena/problem/La-recurrencia-de-un-algoritmo-h
+https://omegaup.com/arena/problem/Una-recurrencia-y-la-altura-de-s
+https://omegaup.com/arena/problem/Coeficiente-binomial-recursivo
+Divide y vencerás
+https://omegaup.com/arena/problem/Con-pocos-ceros-consecutivos
+https://omegaup.com/arena/problem/Transiciones-en-cadenas-binarias
+https://omegaup.com/arena/problem/Llenando-un-tablero-con-fichas
+https://omegaup.com/arena/problem/Sin-ceros-consecutivos
+https://omegaup.com/arena/problem/Cadenas-de-digitos-sin-ceros-con
+https://omegaup.com/arena/problem/Suma-de-digitos
+https://omegaup.com/arena/problem/Cadenas-binarias-con-unos-separa
+https://omegaup.com/arena/problem/Cadenas-binarias-con-pocos-digit
+https://omegaup.com/arena/problem/Palindromos-sin-ceros-consecutiv
+https://omegaup.com/arena/problem/nre
+https://omegaup.com/arena/problem/La-fila-de-indios-en-la-cornisa
+https://omegaup.com/arena/problem/Coloreando-cuadritos
+Búsqueda con retroceso
+https://omegaup.com/arena/problem/Sumando-combinaciones-de-enteros
+https://omegaup.com/arena/problem/Contando-secuencias-crecientes
+https://omegaup.com/arena/problem/Antipalindromos-formados-por-dig
+https://omegaup.com/arena/problem/Cadenas-viborita
+https://omegaup.com/arena/problem/Permutaciones-divisibles
+https://omegaup.com/arena/problem/Cadenas-de-primos
+https://omegaup.com/arena/problem/El-problema-de-las-N-princesas
+https://omegaup.com/arena/problem/Los-changos-marcianos
+https://omegaup.com/arena/problem/El-recorrido-del-principe
+https://omegaup.com/arena/problem/El-recorrido-del-rey-borracho
+https://omegaup.com/arena/problem/El-agente-viajero
+https://omegaup.com/arena/problem/Guardias-de-la-Reina-Roja
+https://omegaup.com/arena/problem/El-gato-y-los-ratones
+https://omegaup.com/arena/problem/Transporte                               ADAPTACION
+Recursión con memorización
+https://omegaup.com/arena/problem/El-rectangulo-de-domino
+https://omegaup.com/arena/problem/La-funcion-loca
+https://omegaup.com/arena/problem/La-venganza-de-la-funcion-loca
+https://omegaup.com/arena/problem/Evaluando-una-funcion
+https://omegaup.com/arena/problem/Evaluando-una-funcion-algo-rara
+https://omegaup.com/arena/problem/Una-recurrencia-con-dominio-real
+https://omegaup.com/arena/problem/Recurrencia-con-dominio-positivo
+https://omegaup.com/arena/problem/Una-recurrencia-sencilla
+https://omegaup.com/arena/problem/Dos-recurrencias-mutuas
+https://omegaup.com/arena/problem/Caminos-en-la-rejilla-entera
+https://omegaup.com/arena/problem/Recursion-con-memorizacion
+Programación dinámica
+https://omegaup.com/arena/problem/Suma-de-subconjuntos
+https://omegaup.com/arena/problem/El-problema-de-la-mochila-d
+https://omegaup.com/arena/problem/Multiplicacion-encadenada-de-mat
+https://omegaup.com/arena/problem/La-fabrica-de-panquecitos/
+https://omegaup.com/arena/problem/Bajando-por-el-arbol
+https://omegaup.com/arena/problem/interminable-mermelada
+https://omegaup.com/arena/problem/gato-familias-ratones
+https://omegaup.com/arena/problem/Los-arboles-del-bosque-de-cedros
+https://omegaup.com/arena/problem/El-burro-de-James-Powell
+https://omegaup.com/arena/problem/El-peligroso-cachorro-saltarin
+https://omegaup.com/arena/problem/Fotografiando-al-fantasma
+https://omegaup.com/arena/problem/El-ladron-precavido
+https://omegaup.com/arena/problem/Subsecuencia-comun-mas-larga
+https://omegaup.com/arena/problem/Recolectando-tesoros
+https://omegaup.com/arena/problem/Palindromos-uva                          ADAPTACION
+Búsqueda en amplitud
+https://omegaup.com/arena/problem/Saltando-hacia-la-pared
+https://omegaup.com/arena/problem/audencia_salon_marciano
+https://omegaup.com/arena/problem/El-raton-que-salta-chueco
+https://omegaup.com/arena/problem/Exponenciacion-con-multiplicacio
+https://omegaup.com/arena/problem/lsp
+https://omegaup.com/arena/problem/2da-ccp-serpientes-escaleras
+https://omegaup.com/arena/problem/aph
+https://omegaup.com/arena/problem/1er-ccp-lava/
+https://omegaup.com/arena/problem/Vaciar-vasos-de-precipitados
+https://omegaup.com/arena/problem/Qbert
+Búsqueda local
+https://omegaup.com/arena/problem/Ayudando-al-agente-viajero
+Algoritmos glotones
+https://omegaup.com/arena/problem/El-problema-de-la-mochila-c
+https://omegaup.com/arena/problem/El-baile-de-las-langostas
+https://omegaup.com/arena/problem/Horarios-empalmados
+https://omegaup.com/arena/problem/Voltea-monedas-consecutivas
+https://omegaup.com/arena/problem/Monedas-volteadas-en-intervalos
+https://omegaup.com/arena/problem/Subiendo-la-bomba-por-la-colina
+https://omegaup.com/arena/problem/El-escape-de-los-ratones
+https://omegaup.com/arena/problem/Comprador-de-Bloques                     EXTERNO
+https://omegaup.com/arena/problem/Creacion-de-concursos-de-program         ADAPTACION
+Problemas NP-Completos
+https://omegaup.com/arena/problem/3-SAT
+https://omegaup.com/arena/problem/Alejando-la-bomba-del-origen
+
+Inteligencia artificial
+https://omegaup.com/arena/problem/Clasificador-de-SPAM
+Inteligencia computacional
+https://omegaup.com/arena/problem/Biseccion-de-un-poligono
+https://omegaup.com/arena/problem/Automatas-celulares
+https://omegaup.com/arena/problem/Normalizacion-de-datos
+https://omegaup.com/arena/problem/Optimizacion-continua
+Big Data
+https://omegaup.com/arena/problem/La-especie-dominante-en-marte
+Combinatoria
+https://omegaup.com/arena/problem/Orden-grado-lexicografico
+Compiladores
+https://omegaup.com/arena/problem/Lenguajes-Regulares
+https://omegaup.com/arena/problem/Lexemas-y-tokens
+Criptografía
+https://omegaup.com/arena/problem/idea
+Taller de Análisis y Diseño de Algoritmos
+https://omegaup.com/arena/problem/Paisajes-de-la-ciudad
+https://omegaup.com/arena/problem/Incrementando-intervalos-con-con
+https://omegaup.com/arena/problem/Suma-de-intervalos-con-modificac
+https://omegaup.com/arena/problem/Ordenando-numeros-con-pilas
+https://omegaup.com/arena/problem/Un-orden-para-todos
+https://omegaup.com/arena/problem/eye
+https://omegaup.com/arena/problem/cmiuam
+https://omegaup.com/arena/problem/Cuenta-de-valores-menores-en-int
+https://omegaup.com/arena/problem/Minimo-y-Maximo-en-un-Intervalo                         EXTERNO
+https://omegaup.com/arena/problem/Incrementando-las-ocurrencias-de
+https://omegaup.com/arena/problem/findprime                    EXTERNO
+https://omegaup.com/arena/problem/Divisores-de-N               EXTERNO
+https://omegaup.com/arena/problem/Puertas-del-Tiempo
+https://omegaup.com/arena/problem/Alejando-la-bomba-en-la-grafica
+https://omegaup.com/arena/problem/Subsecuencia-comun-mas-larga-con
+https://omegaup.com/arena/problem/El-golfista-vidente
+
+Otros cursos
